@@ -1,0 +1,12 @@
+<div class="product-card-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ product.name }}</mat-card-title>
+      <mat-card-subtitle>{{ product.description }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-card-subtitle>Price: {{ product.price }}</mat-card-subtitle>
+      <mat-card-subtitle>{{ product.inStock ? 'In Stock: Yes' : 'In Stock: No' }}</mat-card-subtitle>
+    </mat-card-content>
+  </mat-card>
+</div>
