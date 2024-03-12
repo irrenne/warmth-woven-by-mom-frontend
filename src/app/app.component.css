@@ -2,6 +2,59 @@ body {
   font-family: 'Quicksand', sans-serif;
 }
 
+.mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  /*background-color: #F5EEE6;*/
+  /*background-color: #F3EEEA;*/
+}
+
+.brand-name {
+  text-align: center;
+  width: 100%;
+}
+
+
 .example-spacer {
   flex: 1 1 auto;
+}
+
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.sidenav-container {
+  font-family: 'Quicksand', sans-serif;
+  height: 100vh; /* 100% of the viewport height */
+}
+
+.custom-font{
+  font-family: 'Quicksand', sans-serif;
+}
+
+:host /deep/ .mdc-list-item__primary-text {
+  font-family: 'Quicksand', sans-serif;
+}
+
+mat-sidenav {
+  width: 25%; /* Adjust the width as needed */
+  padding: 1%; /* Add padding to the left and right */
+}
+
+mat-nav-list {
+  width: 100%; /* Make the list take full width */
+}
+
+.footer {
+  flex: auto;
+  max-width: 100%;
+  background-color: #eeeeee; /* Light grey background color */
+  color: #333; /* Dark text color */
+  padding: 20px; /* Add padding to the footer */
+  text-align: center; /* Center-align the text */
+  margin-top: 50px; /* Add space above the footer */
+  border-top: 1px solid #ddd; /* Add a border at the top of the footer */
 }

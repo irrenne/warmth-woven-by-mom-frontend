@@ -1,32 +1,40 @@
 <head>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap"
         rel="stylesheet">
-  <title>warmth woven by mom</title>
+  <title>warmth-woven-by-mom</title>
 </head>
 <body>
-<div class="main">
+  <mat-sidenav-container class="sidenav-container">
+    <!-- Main content area -->
+    <mat-sidenav #sidenav mode="over" position="start">
+      <mat-nav-list>
+        <a mat-list-item routerLink="/" (click)="sidenav.close()">Home</a>
+        <a mat-list-item routerLink="/products" (click)="sidenav.close()">Products</a>
+        <!-- Add other menu items as needed -->
+      </mat-nav-list>
+    </mat-sidenav>
 
-  <mat-toolbar>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" [matMenuTriggerFor]="menu">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span>Warmth Woven By Mom</span>
-    <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>share</mat-icon>
-    </button>
+    <mat-sidenav-content>
+      <mat-toolbar>
+        <!-- Button to open the side menu -->
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+<!--        <div class="logo-container">-->
+<!--          <img src="assets/logo/cat-sleep-logo.png" alt="Logo">-->
+<!--        </div>-->
+        <span class="custom-font brand-name">WarmthWovenByMom</span>
+        <span class="example-spacer"></span>
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+          <mat-icon>favorite</mat-icon>
+        </button>
+      </mat-toolbar>
 
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item>Option 1</button>
-      <button mat-menu-item>Option 2</button>
-      <button mat-menu-item>Option 3</button>
-    </mat-menu>
-  </mat-toolbar>
-
-  <app-product-display *ngFor="let product of products"
-                       [product]="product"/>
-</div>
+      <!-- Your main content goes here -->
+      <router-outlet></router-outlet>
+      <div class="footer">
+        <p>&copy; 2024 WarmthWovenByMom. All rights reserved.</p>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </body>
