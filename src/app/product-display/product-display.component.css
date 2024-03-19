@@ -1,20 +1,65 @@
 .product-card-container {
-  max-width: 50%; /* 80% of the parent container's width */
+  max-width: 100%; /* Adjust the maximum width to fit your design */
   margin: 0 auto;
-  padding: 16px;
+  padding: 1vw; /* Change padding to a percentage of viewport width */
 }
 
-mat-card {
-  width: 100%;
-}
-
-mat-card-title,
-mat-card-subtitle {
-  font-family: 'Quicksand', sans-serif;
-  word-wrap: break-word;
-}
-
-mat-card-content {
+.product {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  max-width: 30vw; /* Change max-width to a percentage of viewport width */
+  background-color: #fff;
+  border-radius: 0.3vw; /* Change border radius to a percentage of viewport width */
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.1); /* Change box-shadow to a percentage of viewport width */
+  padding: 2vw; /* Change padding to a percentage of viewport width */
+  transition: transform 0.3s ease;
   display: flex;
   flex-direction: column;
+}
+
+.product:hover {
+  transform: translateY(-1vw); /* Change hover effect to a percentage of viewport width */
+}
+
+.product-image {
+  max-width: 100%; /* Ensure image doesn't exceed its container width */
+  max-height: 30vw; /* Set a maximum height for the images */
+  height: auto; /* Allow the height to adjust proportionally */
+  border-radius: 0.3vw; /* Change border radius to a percentage of viewport width */
+  margin-bottom: 2vw; /* Change margin to a percentage of viewport width */
+}
+
+.product-name {
+  font-size: 1.3vw; /* Change font size to a percentage of viewport width */
+  font-weight: bold;
+  margin-bottom: 0.5vw; /* Change margin to a percentage of viewport width */
+}
+
+.product-description {
+  font-size: 1vw; /* Change font size to a percentage of viewport width */
+  margin-bottom: 0.7vw; /* Change margin to a percentage of viewport width */
+}
+
+.product-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-price {
+  font-size: 1.2vw; /* Change font size to a percentage of viewport width */
+  color: #474748;
+}
+
+.product-stock {
+  font-size: 1.05vw; /* Change font size to a percentage of viewport width */
+}
+
+.in-stock {
+  color: green;
+}
+
+.out-of-stock {
+  color: red;
 }

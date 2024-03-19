@@ -8,6 +8,7 @@
   align-items: center;
   justify-content: center;
   color: white;
+  border-radius: 0.3vw;
   transition-duration: 700ms;
 }
 .header:hover{
@@ -16,7 +17,7 @@
 }
 
 .landing-page {
-  padding: 45px;
+  padding: 3.33vw;
   text-align: center;
 }
 
@@ -28,24 +29,20 @@
   opacity: 1;
 }
 
-.view-more {
-  margin-bottom: 20px;
-}
-
 .hidden-text {
   max-width: calc((100vw - 40px) / 2);
-  margin: 80px auto; /* Center the text horizontally */
-  font-size: 18px;
+  margin: 5.556vw auto; /* Center the text horizontally */
+  font-size: 1.25vw;
   line-height: 1.6;
   text-align: justify;
 }
 
 .brand-started{
-  margin: 90px;
+  margin: 6.25vw;
 }
 
 .brand-started p {
-  font-size: 18px; /* Increase the font size of the paragraph */
+  font-size: 1.25vw; /* Increase the font size of the paragraph */
   line-height: 1.6; /* Increase the line height for better readability */
   text-align: justify; /* Ensure text starts from the same position on each line */
   margin: 0; /* Remove any default margins */
@@ -54,7 +51,7 @@
 
 /* Products Scroll */
 .products-scroll {
-  margin: 90px;
+  margin: 6.25vw;
 }
 
 .scroll-container {
@@ -70,107 +67,26 @@
 
 .scroll img {
   max-width: 100%; /* Ensure image doesn't exceed its container width */
-  max-height: 500px; /* Set a maximum height for the images */
+  max-height: 34vw; /* Set a maximum height for the images */
   height: auto; /* Allow the height to adjust proportionally */
-  margin-right: 10px; /* Add spacing between images */
+  margin-right: 0.69vw; /* Add spacing between images */
+  border-radius: 0.3vw;
   transition-duration: 400ms;
 }
 .scroll img:hover {
-  border-radius: 20px;
+  border-radius: 1.389vw;
   transform: scale(1.04);
   box-shadow: 0 0 10px rgba(211, 250, 238, 0.5); /* Add glow effect */
 }
 
 
 /* Responsive styles */
-@media (max-width: 600px) {
+@media (max-width: 41.667vw) {
   .scroll-container {
     max-width: calc(100vw - 20px); /* Adjust for smaller screens */
   }
 
   .scroll img {
-    max-height: 150px; /* Adjust maximum height for smaller screens */
+    max-height: 10.417vw; /* Adjust maximum height for smaller screens */
   }
 }
-
-
-
-
-/*.landing-page {*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*  align-items: center;*/
-/*  padding: 20px;*/
-/*}*/
-
-/*.brand-info {*/
-/*  text-align: center;*/
-/*  margin-top: 20px;*/
-/*}*/
-
-/*.brand-info p {*/
-/*  !* Your brand information styles go here *!*/
-/*}*/
-
-/*.custom-tab-group {*/
-/*  position: relative;*/
-/*  margin-top: 3%;*/
-/*  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
-/*}*/
-
-/*.image-container {*/
-/*  flex: 1;*/
-/*  display: flex;*/
-/*  align-items: center;*/
-/*  justify-content: center;*/
-/*  padding: 5px;*/
-/*  width: 450px; !* Set your desired width *!*/
-/*  height: 500px; !* Set your desired height *!*/
-/*  border-radius: 10px;*/
-/*  overflow: hidden;*/
-/*  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
-/*}*/
-
-/*.rounded-image {*/
-/*  width: 100%;*/
-/*  height: 100%;*/
-/*  object-fit: cover; !* Maintain aspect ratio while covering the container *!*/
-/*  border-radius: 10px;*/
-/*}*/
-
-/*.custom-card {*/
-/*  max-width: 1000px; !* Adjust the max-width to your desired value *!*/
-/*  margin: 0 auto; !* Center the card horizontally *!*/
-/*  font-size: 16px;*/
-/*}*/
-
-/*.center-actions {*/
-/*  padding: 2%;*/
-/*  display: flex;*/
-/*  justify-content: center;*/
-/*}*/
-
-/*content-container {*/
-/*  display: flex;*/
-/*  max-width: 1100px; !* Adjust as needed *!*/
-/*  width: 100%;*/
-/*  margin: 0 auto;*/
-/*}*/
-
-/*!* Add this to your existing CSS *!*/
-
-/*!* Styles for the additional information *!*/
-/*.tab-info {*/
-/*  flex: 1;*/
-/*  display: flex;*/
-/*  align-items: center;*/
-/*  justify-content: center;*/
-/*  padding: 20px;*/
-/*  text-align: center;*/
-/*  !*background-color: #f5f5f5; !* Set your desired background color *!*!*/
-/*}*/
-/*.tab-content {*/
-/*  display: flex;*/
-/*  align-items: center;*/
-/*}*/
-/* Adjust the styles as needed */

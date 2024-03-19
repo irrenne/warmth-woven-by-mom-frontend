@@ -1,12 +1,13 @@
 <div class="product-card-container">
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>{{ product.name }}</mat-card-title>
-      <mat-card-subtitle>{{ product.description }}</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <mat-card-subtitle>Price: {{ product.price }}</mat-card-subtitle>
-      <mat-card-subtitle>{{ product.inStock ? 'In Stock: Yes' : 'In Stock: No' }}</mat-card-subtitle>
-    </mat-card-content>
-  </mat-card>
+  <div class="product">
+    <img [src]="'/assets/preview/IMG_6579.jpg'" [alt]="product.name" class="product-image">
+    <h3 class="product-name">{{ product.name }}</h3>
+    <p class="product-description">{{ product.description }}</p>
+    <div class="product-info">
+      <p class="product-price">Price: {{ product.price }}</p>
+      <p class="product-stock" [ngClass]="{'in-stock': product.inStock, 'out-of-stock': !product.inStock}">
+        {{ product.inStock ? 'In Stock' : 'Out of Stock' }}
+      </p>
+    </div>
+  </div>
 </div>

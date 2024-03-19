@@ -7,20 +7,25 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  /*background-color: #F5EEE6;*/
-  /*background-color: #F3EEEA;*/
 }
 
 .brand-name {
+  font-family: 'Quicksand', sans-serif;
   text-align: center;
   width: 100%;
 }
 
+.brand-name-clickable {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.brand-name-clickable:hover {
+  color: darkgrey;
+}
 
 .example-spacer {
   flex: 1 1 auto;
 }
-
 
 .example-spacer {
   flex: 1 1 auto;
@@ -31,7 +36,7 @@ body {
   height: 100vh; /* 100% of the viewport height */
 }
 
-.custom-font{
+.custom-font {
   font-family: 'Quicksand', sans-serif;
 }
 
@@ -46,15 +51,4 @@ mat-sidenav {
 
 mat-nav-list {
   width: 100%; /* Make the list take full width */
-}
-
-.footer {
-  flex: auto;
-  max-width: 100%;
-  background-color: #eeeeee; /* Light grey background color */
-  color: #333; /* Dark text color */
-  padding: 20px; /* Add padding to the footer */
-  text-align: center; /* Center-align the text */
-  margin-top: 50px; /* Add space above the footer */
-  border-top: 1px solid #ddd; /* Add a border at the top of the footer */
 }
