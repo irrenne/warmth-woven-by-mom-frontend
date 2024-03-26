@@ -19,13 +19,19 @@ import {MatCardModule} from "@angular/material/card";
 import {NgOptimizedImage} from "@angular/common";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import { FooterComponent } from './footer/footer.component';
+import { ProductViewPageComponent } from './product-view-page/product-view-page.component';
+import {MatExpansionModule} from "@angular/material/expansion";
+import { OrderPageComponent } from './order-page/order-page.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
     ProductPageComponent,
-    FooterComponent
+    FooterComponent,
+    ProductViewPageComponent,
+    OrderPageComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +48,9 @@ import { FooterComponent } from './footer/footer.component';
     MatTabsModule,
     MatCardModule,
     NgOptimizedImage,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatExpansionModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

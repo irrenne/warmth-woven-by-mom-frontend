@@ -1,5 +1,6 @@
 body {
   font-family: 'Quicksand', sans-serif;
+  background-color: white;
 }
 
 .mat-toolbar {
@@ -7,6 +8,8 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  background-color: white;
+  border-bottom: 1px solid #f3f4f6;
 }
 
 .brand-name {
@@ -34,6 +37,7 @@ body {
 .sidenav-container {
   font-family: 'Quicksand', sans-serif;
   height: 100vh; /* 100% of the viewport height */
+  background-color: white;
 }
 
 .custom-font {
@@ -44,7 +48,7 @@ body {
   font-family: 'Quicksand', sans-serif;
 }
 
-mat-sidenav {
+.mat-sidenav {
   width: 25%; /* Adjust the width as needed */
   padding: 1%; /* Add padding to the left and right */
 }

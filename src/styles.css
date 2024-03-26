@@ -1,4 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: "Quicksand", sans-serif; }
+
+.my-button {
+  font-family: 'Quicksand', sans-serif !important;
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 1.1vw;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: black;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  background-color: #fff;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.23);
+}
+
+.my-button:hover:not([disabled]) {
+  background-color: #f5f5f5;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.my-button:disabled {
+  background-color: #f5f5f5;
+  color: #999;
+  cursor: not-allowed;
+}
+

@@ -15,7 +15,7 @@
 
 
   <!-- Products Scroll -->
-  <div class="products-scroll" [@fadeIn]>
+  <div class="products-scroll" [@slideRight]>
     <h2>Featured Products</h2>
     <div class="scroll-container">
       <div class="scroll">
@@ -25,9 +25,10 @@
   </div>
 
   <!-- Brand Story -->
-  <div class="brand-started" [@fadeIn]>
-    <h2>Our Story</h2>
-    <p>A mother's love is a powerful force that extends far beyond the physical realm. It's the
+  <div class="brand-started">
+    <h2 [@fadeIn]>Our Story</h2>
+    <p [@slideRight]>
+      A mother's love is a powerful force that extends far beyond the physical realm. It's the
       warmth in her embrace, the tenderness in her touch, and the unwavering support in her words.
       When a mother crafts something with love, it becomes infused with a special kind of magic – a
       magic that transcends mere materials and transforms ordinary objects into cherished treasures.
@@ -35,11 +36,12 @@
       In our shop, every product is a testament to this magic. Each stitch, each fold, and each
       detail is imbued with the love and care of a mother's hands. It's not just about the wool that
       creates warmth; it's about the love that creates a connection. Our products carry the essence
-      of this love, radiating warmth and comfort to all who encounter them.</p>
+      of this love, radiating warmth and comfort to all who encounter them.
+    </p>
   </div>
 
   <!-- Products Scroll -->
-  <div class="products-scroll" [@slideUp]>
+  <div class="products-scroll" [@slideRight]>
     <h2>More Products</h2>
     <div class="scroll-container">
       <div class="scroll">
@@ -52,7 +54,7 @@
   <div class="view-more">
     <div fxLayout="row" fxLayoutAlign="center">
       <a href="/products">
-        <button mat-raised-button>View More</button>
+        <button class="my-button">View More</button>
       </a>
     </div>
   </div>

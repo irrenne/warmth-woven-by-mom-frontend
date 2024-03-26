@@ -9,7 +9,6 @@
   justify-content: center;
   color: white;
   border-radius: 0.3vw;
-  transition-duration: 700ms;
 }
 .header:hover{
   filter: grayscale(50%);
@@ -19,6 +18,7 @@
 .landing-page {
   padding: 3.33vw;
   text-align: center;
+  background-color: white;
 }
 
 .header,
@@ -27,6 +27,15 @@
 .products,
 .footer {
   opacity: 1;
+}
+p{
+  font-size: 1.3vw;
+}
+h2{
+  font-size: 2.1vw;
+}
+h1{
+  font-size: 3vw;
 }
 
 .hidden-text {
@@ -49,7 +58,6 @@
   padding: 0; /* Remove any default paddings */
 }
 
-/* Products Scroll */
 .products-scroll {
   margin: 6.25vw;
 }
@@ -71,7 +79,6 @@
   height: auto; /* Allow the height to adjust proportionally */
   margin-right: 0.69vw; /* Add spacing between images */
   border-radius: 0.3vw;
-  transition-duration: 400ms;
 }
 .scroll img:hover {
   border-radius: 1.389vw;

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { trigger, transition, style, animate } from '@angular/animations';
+import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
+import {trigger, transition, style, animate} from '@angular/animations';
 
 @Component({
   selector: 'app-landing-page',
@@ -19,10 +19,10 @@ import { trigger, transition, style, animate } from '@angular/animations';
           })),
       ]),
     ]),
-    trigger('slideUp', [
+    trigger('slideRight', [
       transition(':enter', [
-        style({ transform: 'translateY(-100%)', opacity: 0 }),
-        animate('1s ease-out', style({ transform: 'translateY(0)', opacity: 1 })),
+        style({transform: 'translateX(-100%)', opacity: 0}),
+        animate('2.2s ease-in-out', style({transform: 'translateX(0)', opacity: 1})),
       ]),
     ]),
   ],
@@ -33,6 +33,7 @@ export class LandingPageComponent {
   toggleTextVisibility() {
     this.isTextVisible = !this.isTextVisible;
   }
+
   imageUrls = [
     {
       url: '/assets/preview/IMG_6579.jpg',

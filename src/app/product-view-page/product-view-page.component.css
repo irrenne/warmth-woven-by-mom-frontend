@@ -1,0 +1,95 @@
+.product-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+
+}
+
+.product-details {
+  display: flex;
+  margin: 5vw 0;
+}
+
+.product-image {
+  width: 30vw;
+  height: auto;
+  border-radius: 0.3vw;
+  margin: 0 4vw 0 0;
+}
+
+.product-info {
+  flex: 1;
+  margin-left: 2vw;
+}
+
+.product-info h2 {
+  font-size: 2vw;
+}
+
+.product-info p {
+  font-size: 1.25vw;
+}
+
+.mat-accordion {
+  width: 90%;
+  margin-bottom: 20px;
+  border-radius: 0.3vw;
+}
+
+.mat-expansion-panel {
+  padding: 20px;
+  max-width: 100%;
+  border-radius: 0.3vw;
+  border-bottom: 1px solid #f3f4f6;
+  box-shadow: none !important;
+}
+
+.mat-expansion-panel p {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.25vw;
+}
+
+.care-instructions ul li {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.2vw;
+}
+
+.mat-expansion-panel-header-title {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.3vw;
+  font-weight: bold;
+}
+
+.reviews {
+  width: 90%; /* Adjust as needed */
+  margin-bottom: 20px;
+  border-radius: 0.3vw;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.reviews h2 {
+  font-size: 1.3vw;
+  margin-left: 3vw;
+}
+
+.mat-panel-title {
+  font-weight: bold; /* Make accordion titles bold */
+}
+
+.care-instructions {
+  padding: 0 20px;
+}
+
+.care-instructions p {
+  margin-bottom: 20px;
+}
+
+.care-instructions ul {
+  margin-bottom: 20px;
+  padding-left: 50px;
+}
+
+.care-instructions li {
+  margin-bottom: 20px;
+}
