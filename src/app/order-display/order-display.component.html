@@ -1,0 +1,13 @@
+<div class="order-container">
+  <div class="order-content">
+    <div class="left-section">
+      <img [src]="order.product?.imageUrl" [alt]="order.product?.name" class="product-image-order">
+    </div>
+    <div class="right-section">
+      <p>Виріб: {{ order.product?.name }}</p>
+      <p>Сума: {{ order.price }}</p>
+      <p>{{ order.product?.description }}</p>
+      <p>{{  order.withShipping ? 'З доставкою' : 'Без доставки' }}</p>
+    </div>
+  </div>
+</div>

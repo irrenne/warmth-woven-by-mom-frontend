@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Product} from "../Product";
 import {ActivatedRoute, Router} from "@angular/router";
-import {HttpClient} from "@angular/common/http";
 import {animate, style, transition, trigger} from "@angular/animations";
+import {HttpService} from "../services/http.service";
+import {AuthorizationService} from "../services/authorization.service";
 
 @Component({
   selector: 'app-product-view-page',
@@ -16,10 +17,10 @@ import {animate, style, transition, trigger} from "@angular/animations";
           filter: 'blur(2px)'
         }),
         animate('0.3s ease-in-out',
-          style({
-            opacity: 1,
-            filter: 'blur(0)'
-          })),
+            style({
+              opacity: 1,
+              filter: 'blur(0)'
+            })),
       ]),
     ])
   ]
@@ -27,12 +28,14 @@ import {animate, style, transition, trigger} from "@angular/animations";
 export class ProductViewPageComponent implements OnInit {
   product: Product | null = null;
 
-  constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient) {
+  constructor(private route: ActivatedRoute, private router: Router, private authService: AuthorizationService, private httpService: HttpService
+  ) {
   }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.http.get<Product>(`http://localhost:9191/api/product/${+params['id']}`).subscribe(product => {
+      const productId = +params['id'];
+      this.httpService.get(`http://localhost:9191/api/product/${productId}`).subscribe(product => {
         this.product = product; // Assign the fetched product to the component property
       });
     });
@@ -40,9 +43,13 @@ export class ProductViewPageComponent implements OnInit {
 
   buyProduct(): void {
     // Check if the product is available
-    if (this.product) {
-      // Navigate to the order page and pass the product ID as a parameter
-      this.router.navigate(['/order', this.product.id]);
+    if (this.authService.isLoggedIn()) {
+      if (this.product) {
+        // Navigate to the order page and pass the product ID as a parameter
+        this.router.navigate(['/order', this.product.id]);
+      }
+    } else {
+      this.router.navigate(['/login']);
     }
   }
 }

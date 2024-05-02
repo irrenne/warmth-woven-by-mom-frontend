@@ -1,5 +1,5 @@
 .order-container {
-  max-width: 80vw;
+  max-width: 70vw;
   margin: 2vw auto;
   padding: 2vw;
   border: 1vw solid #f3f4f6;
@@ -23,6 +23,7 @@
 
 .right-section {
   flex: 0 0 65%;
+  margin-left: 2vw;
 }
 
 .product-image-order {
@@ -33,16 +34,7 @@
   border-radius: 0.3vw;
 }
 
-.shipping-options, .confirm-order {
-  margin-top: 2vw;
-  margin-bottom: 2vw;
-}
-
 label {
   display: block;
   margin-bottom: 1vw;
-}
-
-input[type="checkbox"] {
-  margin-right: 1vw;
 }

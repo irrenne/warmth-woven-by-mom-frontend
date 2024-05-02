@@ -1,5 +1,5 @@
 body {
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Viaoda Libre", serif;
   background-color: white;
 }
 
@@ -13,13 +13,13 @@ body {
 }
 
 .brand-name {
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Viaoda Libre", serif;
   text-align: center;
   width: 100%;
 }
 
 .brand-name-clickable {
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Viaoda Libre", serif;
 }
 
 .brand-name-clickable:hover {
@@ -35,17 +35,17 @@ body {
 }
 
 .sidenav-container {
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Viaoda Libre", serif;
   height: 100vh; /* 100% of the viewport height */
   background-color: white;
 }
 
 .custom-font {
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Viaoda Libre", serif;
 }
 
 :host /deep/ .mdc-list-item__primary-text {
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Viaoda Libre", serif;
 }
 
 .mat-sidenav {

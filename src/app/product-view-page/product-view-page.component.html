@@ -1,54 +1,52 @@
 <div class="product-container" [@fadeIn]>
   <div class="product-details">
-    <img [src]="'/assets/preview/IMG_6579.jpg'" [alt]="product?.name" class="product-image">
+    <img [src]="product?.imageUrl" [alt]="product?.name" class="product-image">
     <div class="product-info">
       <h2>{{ product?.name }}</h2>
       <p>{{ product?.description }}</p>
       <p>Price: {{ product?.price }}</p>
-      <button class="my-button" (click)="buyProduct()" [disabled]="!product?.inStock">Buy Now</button>
+      <button class="my-button" (click)="buyProduct()" [disabled]="!product?.inStock">Купити</button>
     </div>
   </div>
   <mat-accordion>
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>
-          How to Wash
+          Рекомендації по догляду
         </mat-panel-title>
       </mat-expansion-panel-header>
       <div class="care-instructions">
-        <p>To ensure your woven clothes maintain their quality and last longer, please follow these gentle care instructions:</p>
+        <p>Щоб забезпечити якість і тривалість виробів, будь ласка, дотримуйтесь цих ніжних інструкцій з догляду:</p>
 
         <ul>
-          <li><strong>Hand Wash Only:</strong> We recommend hand washing your woven clothes to ensure gentle treatment of the delicate fibers and intricate designs.</li>
-          <li><strong>Use Mild Detergent:</strong> When washing, use a mild detergent specifically designed for delicate fabrics. Avoid harsh chemicals or bleach, as they can damage the fibers and colors.</li>
-          <li><strong>Cold Water Wash:</strong> Wash your woven garments in cold water to prevent shrinking and preserve the fabric's integrity.</li>
-          <li><strong>Gentle Handling:</strong> Handle your woven clothes with care during washing. Avoid vigorous rubbing or wringing, as this can distort the shape and texture of the fabric.</li>
-          <li><strong>Air Dry:</strong> After washing, air dry your woven clothes by laying them flat on a clean towel. Avoid using a dryer, as the heat can damage delicate fibers.</li>
-          <li><strong>Avoid Direct Sunlight:</strong> When drying, place your woven clothes away from direct sunlight to prevent color fading and fabric damage.</li>
-          <li><strong>Iron with Caution:</strong> If ironing is necessary, use a low heat setting and place a cloth over the garment to protect delicate fibers.</li>
-          <li><strong>Store with Care:</strong> Store your clean, dry woven clothes in a cool, dry place. Avoid hanging heavy garments on delicate woven fabrics to prevent stretching.</li>
+          <li><strong>Лише Ручне Прання:</strong> Рекомендуємо прати вручну, щоб вироби не збіглись та не розтягнулись.</li>
+          <li><strong>Використовуйте М'який Миючий Засіб:</strong> При пранні використовуйте м'який миючий засіб, спеціально призначений для делікатного прання. Уникайте використання агресивних хімічних засобів або відбілювачів, оскільки вони можуть погіршити якість та кольори.</li>
+          <li><strong>Пральне Прання:</strong> Пральний цикл має бути налаштований на холодну воду, щоб уникнути змін розміру і зберегти цілісність тканини.</li>
+          <li><strong>Сушіть не в Сушарці:</strong> Після прання розгорніть тканину на чистому рушнику, щоб висихала. Уникайте використання сушарки, оскільки тепло може пошкодити виріб.</li>
+          <li><strong>Уникайте Прямого Сонячного Світла:</strong> Під час сушіння розмістіть тканину подалі від прямого сонячного світла, щоб уникнути вигорання кольорів.</li>
+          <li><strong>Прасуйте з Обережністю:</strong> Якщо прасування необхідне, використовуйте низьку температуру та покладіть зверху тканину під час прасування.</li>
         </ul>
 
-        <p>Following these simple care instructions will help preserve the beauty and longevity of your woven clothes, ensuring you can enjoy them for years to come.</p>
+        <p>Дотримання цих простих інструкцій з догляду допоможе зберегти красу і тривалість виробів, що дозволить вам насолоджуватися ним протягом багатьох років.</p>
       </div>
     </mat-expansion-panel>
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>
-          Materials
+          Склад
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <p>Our woven clothes are crafted with the highest quality materials to ensure comfort,
-        durability, and sustainability. Each piece is meticulously handcrafted using:
+      <p>В наших вʼязаних виробах використовуються натуральні матеріали для забезпечення комфорту, тепла та
+        довговічності. Кожен виріб виготовляється вручну з нитками, які містять в собі:
         <br/>
-        100% Wool: We exclusively use 100% wool in the creation of our woven clothes. Wool is a
-        natural fiber known for its exceptional softness, warmth, and breathability. It provides
-        luxurious comfort while regulating body temperature, making it ideal for both warm and cool
-        climates.</p>
+        100% Шерсті: Ми виключно використовуємо 100% шерсті. Шерсть -
+        це натуральне волокно, відоме своєю винятковою м'якістю, теплотою та диханням. Вона забезпечує комфорт,
+        тепло, що робить її ідеальною для як дуже холодних, так і
+        прохолодних кліматичних умов.</p>
     </mat-expansion-panel>
   </mat-accordion>
   <div class="reviews">
-    <h2>Reviews</h2>
+    <h2>Відгуки</h2>
     <!-- Display reviews here -->
   </div>
 </div>

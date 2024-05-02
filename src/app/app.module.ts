@@ -23,6 +23,14 @@ import { ProductViewPageComponent } from './product-view-page/product-view-page.
 import {MatExpansionModule} from "@angular/material/expansion";
 import { OrderPageComponent } from './order-page/order-page.component';
 import {FormsModule} from "@angular/forms";
+import { UserLoginPageComponent } from './user-login-page/user-login-page.component';
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatInputModule} from "@angular/material/input";
+import {MatSelectModule} from "@angular/material/select";
+import {JwtModule} from "@auth0/angular-jwt";
+import { UserRegistrationPageComponent } from './user-registration-page/user-registration-page.component';
+import { UserOrdersPageComponent } from './user-orders-page/user-orders-page.component';
+import { OrderDisplayComponent } from './order-display/order-display.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +39,11 @@ import {FormsModule} from "@angular/forms";
     ProductPageComponent,
     FooterComponent,
     ProductViewPageComponent,
-    OrderPageComponent
+    OrderPageComponent,
+    UserLoginPageComponent,
+    UserRegistrationPageComponent,
+    UserOrdersPageComponent,
+    OrderDisplayComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +62,15 @@ import {FormsModule} from "@angular/forms";
     NgOptimizedImage,
     FlexLayoutModule,
     MatExpansionModule,
-    FormsModule
+    FormsModule,
+    MatCheckboxModule,
+    MatInputModule,
+    MatSelectModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => localStorage.getItem('jwtToken'),
+      },
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -28,7 +28,7 @@
 }
 
 .product-info p {
-  font-size: 1.25vw;
+  font-size: 1.35vw;
 }
 
 .mat-accordion {
@@ -46,18 +46,18 @@
 }
 
 .mat-expansion-panel p {
-  font-family: 'Quicksand', sans-serif;
-  font-size: 1.25vw;
+  font-family: "Viaoda Libre", serif;
+  font-size: 1.35vw;
 }
 
 .care-instructions ul li {
-  font-family: 'Quicksand', sans-serif;
-  font-size: 1.2vw;
+  font-family: "Viaoda Libre", serif;
+  font-size: 1.3vw;
 }
 
 .mat-expansion-panel-header-title {
-  font-family: 'Quicksand', sans-serif;
-  font-size: 1.3vw;
+  font-family: "Viaoda Libre", serif;
+  font-size: 1.35vw;
   font-weight: bold;
 }
 
@@ -69,7 +69,7 @@
 }
 
 .reviews h2 {
-  font-size: 1.3vw;
+  font-size: 1.35vw;
   margin-left: 3vw;
 }
 

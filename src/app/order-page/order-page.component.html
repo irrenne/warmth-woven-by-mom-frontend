@@ -1,29 +1,29 @@
 <div class="order-container" [@fadeIn]>
-  <h2>Order Details</h2>
+  <h2>Замовлення</h2>
   <div class="order-content">
     <div class="left-section">
-      <img [src]="'/assets/preview/IMG_6579.jpg'" [alt]="product?.name" class="product-image-order">
+      <img [src]="product?.imageUrl" [alt]="product?.name" class="product-image-order">
     </div>
     <div class="right-section">
-      <p>Product Name: {{ product?.name }}</p>
-      <p>Price: {{ product?.price }}</p>
+      <p>Виріб: {{ product?.name }}</p>
+      <p>Ціна: {{ product?.price }}</p>
       <p>{{ product?.description }}</p>
       <!-- Radio buttons for shipping options -->
       <div class="shipping-options">
         <label>
-          <input type="radio" name="shippingOption" [(ngModel)]="withShipping" [value]="true"> With Shipping
+          <input type="radio" name="shippingOption" [(ngModel)]="withShipping" [value]="true"> З доставкою
         </label>
         <label>
-          <input type="radio" name="shippingOption" [(ngModel)]="withShipping" [value]="false"> Without Shipping
+          <input type="radio" name="shippingOption" [(ngModel)]="withShipping" [value]="false"> Без доставки
         </label>
       </div>
       <!-- Checkbox to confirm the order -->
       <div class="confirm-order">
         <label>
-          <input type="checkbox" [(ngModel)]="confirmOrderCheckbox"> I confirm this order
+          <input type="checkbox" [(ngModel)]="confirmOrderCheckbox"> Я підтверджую замовлення
         </label>
       </div>
-      <button class="my-button" (click)="confirmOrder()" [disabled]="!confirmOrderCheckbox">Confirm Order</button>
+      <button class="my-button" (click)="confirmOrder()" [disabled]="!confirmOrderCheckbox">Замовити</button>
     </div>
   </div>
 </div>

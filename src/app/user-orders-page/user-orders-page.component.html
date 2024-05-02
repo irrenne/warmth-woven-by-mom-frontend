@@ -1,0 +1,6 @@
+<div class="orders-page">
+  <h2>Усі замовлення</h2>
+  <div class="orders-table">
+      <app-order-display *ngFor="let order of orders" [order]="order"></app-order-display>
+  </div>
+</div>

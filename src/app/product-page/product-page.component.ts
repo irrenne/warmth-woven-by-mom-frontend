@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Product} from "../Product";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 
 @Component({
   selector: 'app-product-page',
@@ -9,17 +9,74 @@ import {HttpClient} from "@angular/common/http";
 })
 export class ProductPageComponent {
   products: Product[] = [];
-  emptyProduct: Product = new Product(0, "", "", BigInt(0), true);
+  emptyProduct: Product = new Product(0, "", "", BigInt(0),'',0, true);
+  itemsPerRow = 3; // Number of products to display per row
+  currentPage = 0; // Current page number
+  totalItems = 0; // Total number of products
+  totalPages = 0; // Total number of pages
+  searchQuery = ''; // Search query
+  sortField = 'price'; // Field to sort by
+  sortDirection = 'asc'; // Sorting direction
+  inStockOnly = false; // Show only in-stock products
 
-  constructor(private http: HttpClient) {}
-
-  ngOnInit(): void {
-    this.http.get<Product[]>(
-      "http://localhost:9191/api/product"
-    ).subscribe(data => this.products = data);
+  constructor(private http: HttpClient) {
   }
 
-  itemsPerRow = 3; // Number of products to display per row
+  ngOnInit(): void {
+    this.loadProducts();
+  }
+
+  loadProducts() {
+    let params = new HttpParams()
+    .set('page', this.currentPage.toString())
+    .set('size', 9)
+    .set('sortBy', this.sortField)
+    .set('sortDirection', this.sortDirection);
+
+    if (this.searchQuery) {
+      params = params.set('name', this.searchQuery);
+    }
+
+    if (this.inStockOnly) {
+      params = params.set('inStock', 'true');
+    }
+
+    this.http.get<any>('http://localhost:9191/api/product/paged', {params}).subscribe(response => {
+      this.products = response.content;
+      this.totalItems = response.totalElements;
+      this.totalPages = response.totalPages;
+    });
+  }
+
+  search() {
+    this.currentPage = 0;
+    this.loadProducts();
+  }
+
+  changePage(page: number) {
+    this.currentPage = page;
+    this.loadProducts();
+  }
+
+  toggleInStock() {
+    this.currentPage = 0;
+    this.loadProducts();
+  }
+
+  sort(field: string) {
+    if (field === this.sortField) {
+      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+    } else {
+      this.sortField = field;
+      this.sortDirection = 'asc';
+    }
+    this.loadProducts();
+  }
+
+  toggleSortDirection() {
+    this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+    this.loadProducts();
+  }
 
   get productRows() {
     const rows = [];

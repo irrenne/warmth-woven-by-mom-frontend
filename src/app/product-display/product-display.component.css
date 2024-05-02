@@ -31,7 +31,7 @@
 }
 
 .product-name {
-  font-size: 1.3vw; /* Change font size to a percentage of viewport width */
+  font-size: 1.4vw; /* Change font size to a percentage of viewport width */
   font-weight: bold;
   margin-bottom: 0.5vw; /* Change margin to a percentage of viewport width */
 }

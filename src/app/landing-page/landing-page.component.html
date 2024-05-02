@@ -3,49 +3,47 @@
 
   <!-- Header -->
   <div class="header" [@fadeIn] (click)="toggleTextVisibility()">
-    <h1>Welcome to Warm Place</h1>
-    <p>Discover our high-quality products</p>
+    <h1>Вітаємо в Теплому Місці</h1>
+    <p>Дізнайтесь про наші вироби ручної роботи</p>
   </div>
 
   <div class="hidden-text" *ngIf="isTextVisible">
-    <p>Mom can give a lot of love to her children. But it does not necessarily end there.
-      Mom makes everything with love. So our products are not only warm because of wool
-      but because of the love mom put into them.</p>
+    <p>Мати може віддати своїм дітям безмежно багато любові. Але на цьому не закінчується. Мама робить усе з любов'ю.
+      Тому наші вироби не лише гріють через вовну, але й через ту любов, яку мати вклала в них.</p>
   </div>
 
 
   <!-- Products Scroll -->
   <div class="products-scroll" [@slideRight]>
-    <h2>Featured Products</h2>
+    <h2>Рекомендовано</h2>
     <div class="scroll-container">
       <div class="scroll">
-        <img *ngFor="let image of imageUrls" [src]="image.url" [alt]="image.alt">
+        <img *ngFor="let product of products" [src]="product.imageUrl" [alt]="product.name" (click)="product.id !== null && navigateToProductView(product.id)">
       </div>
     </div>
   </div>
 
   <!-- Brand Story -->
   <div class="brand-started">
-    <h2 [@fadeIn]>Our Story</h2>
+    <h2 [@fadeIn]>Про Нас</h2>
     <p [@slideRight]>
-      A mother's love is a powerful force that extends far beyond the physical realm. It's the
-      warmth in her embrace, the tenderness in her touch, and the unwavering support in her words.
-      When a mother crafts something with love, it becomes infused with a special kind of magic – a
-      magic that transcends mere materials and transforms ordinary objects into cherished treasures.
+      Материнська любов - це несамовита сила, що розпливається від меж фізичного у духовний світ.
+      Коли мати створює щось зі своєю душею, вона наче використовує надзвичайну магію,
+      перетворюючи прості предмети на неповторні скарби.
 
-      In our shop, every product is a testament to this magic. Each stitch, each fold, and each
-      detail is imbued with the love and care of a mother's hands. It's not just about the wool that
-      creates warmth; it's about the love that creates a connection. Our products carry the essence
-      of this love, radiating warmth and comfort to all who encounter them.
+      У нашій крамниці кожен виріб є свідченням цієї величезної магії. Кожна складка,
+      кожна деталь - це витвір не лише рук, але й материнського серця. Гріє не лише вовна,
+      але й неповторна енергія любові. Наші вироби - це втілення цієї любові, вони випромінюють
+      тепло і затишок, знаходячи відгук у серцях тих, хто натрапляє на них.
     </p>
   </div>
 
   <!-- Products Scroll -->
   <div class="products-scroll" [@slideRight]>
-    <h2>More Products</h2>
+    <h2>Більше Виробів</h2>
     <div class="scroll-container">
       <div class="scroll">
-        <img *ngFor="let image of imageUrls2" [src]="image.url" [alt]="image.alt">
+        <img *ngFor="let product of products2" [src]="product.imageUrl" [alt]="product.name" (click)="product.id !== null && navigateToProductView(product.id)">
       </div>
     </div>
   </div>
@@ -54,7 +52,7 @@
   <div class="view-more">
     <div fxLayout="row" fxLayoutAlign="center">
       <a href="/products">
-        <button class="my-button">View More</button>
+        <button class="my-button">Переглянути ще</button>
       </a>
     </div>
   </div>

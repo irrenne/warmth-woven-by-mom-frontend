@@ -5,6 +5,7 @@ import {Product} from "../Product";
 import {NgClass} from "@angular/common";
 import {animate, style, transition, trigger} from "@angular/animations";
 import {Router} from "@angular/router";
+import {AuthorizationService} from "../services/authorization.service";
 
 @Component({
   selector: 'app-product-display',
@@ -29,10 +30,18 @@ import {Router} from "@angular/router";
   ]
 })
 export class ProductDisplayComponent {
-  constructor(private router: Router) { }
+  @Input() product: Product = new Product(0, "", "", BigInt(0), '', 0, true);
 
-  navigateToProductView(productId: number) {
-    this.router.navigate(['/products', productId]); // Navigate to the product view page with the product ID as a parameter
+  constructor(
+    private router: Router,
+    private authService: AuthorizationService
+  ) { }
+
+  navigateToProductView(productId: number): void {
+    // if (this.authService.isLoggedIn()) {
+      this.router.navigate(['/products', productId]);
+    // } else {
+    //   this.router.navigate(['/login']);
+    // }
   }
-  @Input() product: Product = new Product(0, "", "", BigInt(0), true);
 }

@@ -1,12 +1,12 @@
 <div class="product-card-container" [@fadeIn] (click)="product.id !== null && navigateToProductView(product.id)">
   <div class="product">
-    <img [src]="'/assets/preview/IMG_6579.jpg'" [alt]="product.name" class="product-image">
+    <img [src]="product.imageUrl" [alt]="product.name" class="product-image">
     <h3 class="product-name">{{ product.name }}</h3>
     <p class="product-description">{{ product.description }}</p>
     <div class="product-info">
-      <p class="product-price">Price: {{ product.price }}</p>
+      <p class="product-price">Ціна: {{ product.price }}</p>
       <p class="product-stock" [ngClass]="{'in-stock': product.inStock, 'out-of-stock': !product.inStock}">
-        {{ product.inStock ? 'In Stock' : 'Out of Stock' }}
+        {{ product.inStock ? 'В наявності' : 'Немає в наявності' }}
       </p>
     </div>
   </div>

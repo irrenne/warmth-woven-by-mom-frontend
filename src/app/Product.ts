@@ -4,6 +4,8 @@ export class Product {
     public name: string,
     public description: string,
     public price: bigint,
+    public imageUrl: string,
+    public amount: number,
     public inStock: boolean
   ) {}
 }
