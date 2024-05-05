@@ -6,8 +6,12 @@
     </div>
     <div class="right-section">
       <p>Виріб: {{ product?.name }}</p>
-      <p>Ціна: {{ product?.price }}</p>
+      <p>Ціна: {{ price }}</p>
       <p>{{ product?.description }}</p>
+      <div class="product-quantity">
+        <label for="productQuantity">Кількість:</label>
+        <input type="number" id="productQuantity" [(ngModel)]="quantity" min="1">
+      </div>
       <!-- Radio buttons for shipping options -->
       <div class="shipping-options">
         <label>
@@ -27,29 +31,3 @@
     </div>
   </div>
 </div>
-
-<!--<div class="order-container">-->
-<!--  <h2>Order Details</h2>-->
-<!--  <div class="order-details">-->
-<!--    <img [src]="'/assets/preview/IMG_6579.jpg'" [alt]="product?.name" class="product-image-order">-->
-<!--    <p>Product Name: {{ product?.name }}</p>-->
-<!--    <p>Price: {{ product?.price }}</p>-->
-<!--    &lt;!&ndash; Radio buttons for shipping options &ndash;&gt;-->
-<!--    <div class="shipping-options">-->
-<!--      <label>-->
-<!--        <input type="radio" name="shippingOption" [(ngModel)]="withShipping" [value]="true"> With Shipping-->
-<!--      </label>-->
-<!--      <label>-->
-<!--        <input type="radio" name="shippingOption" [(ngModel)]="withShipping" [value]="false"> Without Shipping-->
-<!--      </label>-->
-<!--    </div>-->
-<!--    &lt;!&ndash; Checkbox to confirm the order &ndash;&gt;-->
-<!--    <div class="confirm-order">-->
-<!--      <label>-->
-<!--        <input type="checkbox" [(ngModel)]="confirmOrderCheckbox"> I confirm this order-->
-<!--      </label>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  &lt;!&ndash; Button to confirm the order &ndash;&gt;-->
-<!--  <button class="my-button" (click)="confirmOrder()" [disabled]="!confirmOrderCheckbox">Confirm Order</button>-->
-<!--</div>-->

@@ -66,12 +66,76 @@
   margin-bottom: 20px;
   border-radius: 0.3vw;
   border-bottom: 1px solid #f3f4f6;
+  font-family: "Viaoda Libre", serif;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3vw; /* Padding added to align with the title */
 }
 
 .reviews h2 {
   font-size: 1.35vw;
-  margin-left: 3vw;
+  margin: 0; /* Adjusted to remove default margin */
 }
+
+.review-item {
+  padding: 10px 3vw;
+  border-bottom: 1px solid #f3f4f6; /* Subtle separation line for each review */
+}
+
+.review-item:last-child {
+  border-bottom: none; /* Remove border from the last item */
+}
+
+.review-item p {
+  text-align: center;
+  margin: 0; /* Remove default margin */
+  font-size: 1.3vw;
+  line-height: 1.6;
+}
+/* Style for the container wrapping the form to ensure it centers everything correctly */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* This will center the form horizontally in its container */
+  width: 100%; /* Ensures it takes the full width of its parent, for better control */
+  margin-top: 20px; /* Optional, adjust spacing from the top */
+}
+
+/* Specific styles for the form to ensure it also aligns its children */
+.form {
+  width: 80%; /* Adjust the width of the form as necessary */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers the children (textarea and button) horizontally */
+}
+
+/* Textarea styling */
+textarea {
+  font-family: "Viaoda Libre", serif;
+  width: 100%; /* Makes the textarea take full width of the form */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical; /* Allows the textarea to be resized vertically */
+  margin-bottom: 10px; /* Space between textarea and button */
+}
+.form button {
+  margin-left: auto; /* Pushes the button to the right */
+}
+button {
+  font-family: "Viaoda Libre", serif;
+  margin-top: 10px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
 
 .mat-panel-title {
   font-weight: bold; /* Make accordion titles bold */

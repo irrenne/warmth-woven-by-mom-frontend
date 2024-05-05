@@ -5,3 +5,14 @@
   align-items: center;
 }
 
+h2{
+  font-size: 1.45vw;
+}
+
+.center-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  text-align: center;
+}

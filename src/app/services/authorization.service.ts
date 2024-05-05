@@ -1,13 +1,12 @@
 import {Injectable} from '@angular/core';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthorizationService {
 
-  constructor(
-  ) {
-  }
+  constructor(private jwtHelper: JwtHelperService) {}
 
   getJwtToken(): string | null {
     return localStorage.getItem('jwtToken');
@@ -25,8 +24,17 @@ export class AuthorizationService {
     return localStorage.getItem('jwtAccessToken');
   }
 
+  getCurrentUserId(): string | null {
+    const token = this.getJwtAccessToken();
+    return token ? this.jwtHelper.decodeToken(token).id : null;
+  }
+
   removeJwtToken(): void {
     localStorage.removeItem('jwtToken');
+  }
+
+  logout(): void{
+    this.removeJwtToken()
   }
 
   isLoggedIn(): boolean {

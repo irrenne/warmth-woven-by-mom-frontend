@@ -22,7 +22,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ProductViewPageComponent } from './product-view-page/product-view-page.component';
 import {MatExpansionModule} from "@angular/material/expansion";
 import { OrderPageComponent } from './order-page/order-page.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { UserLoginPageComponent } from './user-login-page/user-login-page.component';
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatInputModule} from "@angular/material/input";
@@ -71,6 +71,7 @@ import { OrderDisplayComponent } from './order-display/order-display.component';
         tokenGetter: () => localStorage.getItem('jwtToken'),
       },
     }),
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

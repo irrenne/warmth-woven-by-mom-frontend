@@ -1,13 +1,17 @@
-<div class="order-container">
+<div class="order-container" [@fadeIn]>
   <div class="order-content">
-    <div class="left-section">
-      <img [src]="order.product?.imageUrl" [alt]="order.product?.name" class="product-image-order">
+    <div class="images-container">
+      <img *ngFor="let item of order.items" [src]="item.product?.imageUrl" [alt]="item.product?.name"
+           class="product-image-order">
     </div>
-    <div class="right-section">
-      <p>Виріб: {{ order.product?.name }}</p>
+    <div class="order-details">
       <p>Сума: {{ order.price }}</p>
-      <p>{{ order.product?.description }}</p>
-      <p>{{  order.withShipping ? 'З доставкою' : 'Без доставки' }}</p>
+      <p>{{ order.withShipping ? 'З доставкою' : 'Без доставки' }}</p>
+      <ul>
+        <li *ngFor="let item of order.items">
+          <strong>{{ item.product?.name }}</strong> (Кількість: {{ item.quantity }})
+        </li>
+      </ul>
     </div>
   </div>
 </div>

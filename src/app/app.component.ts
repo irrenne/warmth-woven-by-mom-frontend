@@ -8,7 +8,7 @@ import {AuthorizationService} from "./services/authorization.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private router: Router, private authService: AuthorizationService) {
+  constructor(private router: Router, public authService: AuthorizationService) {
   }
 
   redirectToHome() {
@@ -29,5 +29,14 @@ export class AppComponent {
     } else {
       this.router.navigate(['/login']);
     }
+  }
+
+  redirectToRegister() {
+    this.router.navigate(['/register']);
+  }
+
+  logout() {
+    this.authService.logout(); // Ensure this method exists to handle logout
+    this.router.navigate(['/']);
   }
 }

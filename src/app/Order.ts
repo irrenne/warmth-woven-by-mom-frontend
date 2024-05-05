@@ -1,4 +1,4 @@
-import {Product} from "./Product";
+import {OrderItem} from "./OrderItem";
 
 export class Order {
   constructor(
@@ -6,6 +6,6 @@ export class Order {
       public productId: number,
       public price: bigint,
       public withShipping: boolean,
-      public product?: Product
+      public items: OrderItem []
   ) {}
 }

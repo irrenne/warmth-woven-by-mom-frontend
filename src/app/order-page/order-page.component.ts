@@ -19,10 +19,10 @@ import {HttpService} from "../services/http.service";
           filter: 'blur(2px)'
         }),
         animate('0.3s ease-in-out',
-            style({
-              opacity: 1,
-              filter: 'blur(0)'
-            })),
+          style({
+            opacity: 1,
+            filter: 'blur(0)'
+          })),
       ]),
     ])
   ]
@@ -32,14 +32,15 @@ export class OrderPageComponent implements OnInit {
   public productId: number | null = null;
   public withShipping: boolean = false;
   public confirmOrderCheckbox: boolean = false;
+  public quantity: number = 1;
 
   constructor(
-      private route: ActivatedRoute,
-      private router: Router,
-      private http: HttpClient,
-      private httpService: HttpService,
-      private authService: AuthorizationService,
-      private jwtHelper: JwtHelperService
+    private route: ActivatedRoute,
+    private router: Router,
+    private http: HttpClient,
+    private httpService: HttpService,
+    private authService: AuthorizationService,
+    private jwtHelper: JwtHelperService
   ) {
   }
 
@@ -57,23 +58,33 @@ export class OrderPageComponent implements OnInit {
     });
   }
 
+  get price(): bigint | null {
+    if (this.product && this.product.price) {
+      return BigInt(this.quantity) * BigInt(this.product.price); // Ensure the price is calculated as a bigint
+    }
+    return null;
+  }
 
   confirmOrder(): void {
     if (this.authService.isLoggedIn()) {
       const token = this.authService.getJwtAccessToken();
       if (token != null) {
         const userId = this.jwtHelper.decodeToken(token).id;
-        const orderRequest = {
+        const orderItem = {
           productId: this.product?.id,
-          price: this.product?.price,
+          quantity: this.quantity
+        }
+        const orderRequest = {
+          price: this.price ? this.price.toString() : null,
           withShipping: this.withShipping,
-          userId: userId
+          userId: userId,
+          items: [orderItem]
         };
 
         const headers = new HttpHeaders()
         .set('Authorization', `Bearer ${token}`); // Set the Authorization header with the JWT token
 
-        this.http.post('http://localhost:9191/api/order', orderRequest, { headers }).subscribe({
+        this.http.post('http://localhost:9191/api/order', orderRequest, {headers}).subscribe({
           next: (response: any) => {
             console.log('Order placed successfully:', response);
             this.router.navigate(['']);

@@ -46,3 +46,14 @@ label {
 input[type="checkbox"] {
   margin-right: 1vw;
 }
+
+.product-quantity {
+  margin-top: 10px;
+}
+
+.product-quantity input {
+  font-family: "Viaoda Libre", serif;
+  width: 50px;
+  padding: 5px;
+  margin-left: 5px;
+}

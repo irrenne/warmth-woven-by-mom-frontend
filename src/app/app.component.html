@@ -27,13 +27,45 @@
           <span class="brand-name-clickable" (click)="redirectToHome()">WarmthWovenByMom</span>
         </span>
       <span class="example-spacer"></span>
-      <button mat-icon-button (click)="redirectToLogin()" aria-label="Login">
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Login">
         <mat-icon>account_circle</mat-icon>
       </button>
-      <button mat-icon-button class="example-icon favorite-icon"
-              aria-label="Example icon-button with heart icon" (click)="redirectToOrders()">
-        <mat-icon>favorite</mat-icon>
+      <mat-menu #menu="matMenu">
+        <ng-container *ngIf="authService.isLoggedIn(); else loggedOut">
+          <button mat-menu-item (click)="redirectToOrders()">
+            <mat-icon>list</mat-icon>
+            <span>Мої замовлення</span>
+          </button>
+          <button mat-menu-item (click)="logout()">
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Вихід</span>
+          </button>
+        </ng-container>
+        <ng-template #loggedOut>
+          <button mat-menu-item (click)="redirectToLogin()">
+            <mat-icon>login</mat-icon>
+            <span>Увійти</span>
+          </button>
+          <button mat-menu-item (click)="redirectToRegister()">
+            <mat-icon>person_add</mat-icon>
+            <span>Зареєструватись</span>
+          </button>
+        </ng-template>
+      </mat-menu>
+      <button mat-icon-button [matMenuTriggerFor]="cartMenu" aria-label="Shopping Cart">
+        <mat-icon>shopping_cart</mat-icon>
       </button>
+      <mat-menu #cartMenu="matMenu">
+        <button mat-menu-item routerLink="/cart">
+          <mat-icon>shopping_cart</mat-icon>
+          <span>Переглянути кошик</span>
+        </button>
+      </mat-menu>
+
+      <!--      <button mat-icon-button class="example-icon favorite-icon"-->
+<!--              aria-label="Example icon-button with heart icon" (click)="redirectToOrders()">-->
+<!--        <mat-icon>favorite</mat-icon>-->
+<!--      </button>-->
     </mat-toolbar>
 
     <!-- Your main content goes here -->
