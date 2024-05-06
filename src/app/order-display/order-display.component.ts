@@ -27,7 +27,7 @@ import {OrderItem} from "../OrderItem";
 })
 export class OrderDisplayComponent {
   @Input() product: Product = new Product(0, "", "", BigInt(0), "", 0, true);
-  @Input() orderItem: OrderItem = new OrderItem(0,0,0,0,this.product);
+  @Input() orderItem: OrderItem = new OrderItem(0, 0, 0, 0, this.product);
   items: OrderItem[] = [this.orderItem];
   @Input() order: Order = new Order(0, 0, BigInt(0), false, this.items);
 }

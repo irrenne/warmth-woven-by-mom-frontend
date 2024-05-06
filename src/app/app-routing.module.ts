@@ -11,6 +11,8 @@ import {
   UserRegistrationPageComponent
 } from "./user-registration-page/user-registration-page.component";
 import {UserOrdersPageComponent} from "./user-orders-page/user-orders-page.component";
+import {CartComponent} from "./cart/cart.component";
+import {OrderCartPageComponent} from "./order-cart-page/order-cart-page.component";
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -20,6 +22,8 @@ const routes: Routes = [
   { path: "login", component: UserLoginPageComponent},
   { path: "register", component: UserRegistrationPageComponent},
   { path: 'orders', component: UserOrdersPageComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'order-products', component: OrderCartPageComponent },
 ];
 
 @NgModule({

@@ -1,0 +1,45 @@
+<div class="order-container">
+  <div class="order-content">
+    <div class="left-section">
+      <div class="cart-item" *ngFor="let item of items">
+        <div class="item-content">
+          <img [src]="item.product?.imageUrl" alt="{{ item.product?.name }}" class="product-image">
+          <div class="item-details">
+            <p>{{ item.product?.name }}</p>
+            <p>Кількість: <input type="number" [(ngModel)]="item.quantity"
+                                 (change)="updateQuantity(item)" min="1" max="{{item.product?.amount}}"></p>
+            <p>Ціна: {{ item.product?.price }}</p>
+          </div>
+        </div>
+        <div class="item-actions">
+          <button class="my-button" (click)="removeFromCart(item.product?.id)">Вилучити</button>
+        </div>
+      </div>
+    </div>
+    <div class="right-section">
+      <div class="total">
+        <span class="total-sum">Разом: {{ totalPrice }}</span>
+      </div>
+      <!-- Radio buttons for shipping options -->
+      <div class="shipping-options">
+        <label>
+          <input type="radio" name="shippingOption" [(ngModel)]="withShipping" [value]="true"> З
+          доставкою
+        </label>
+        <label>
+          <input type="radio" name="shippingOption" [(ngModel)]="withShipping" [value]="false"> Без
+          доставки
+        </label>
+      </div>
+      <!-- Checkbox to confirm the order -->
+      <div class="confirm-order">
+        <label>
+          <input type="checkbox" [(ngModel)]="confirmOrderCheckbox"> Я підтверджую замовлення
+        </label>
+      </div>
+      <button class="my-button" (click)="confirmOrder()" [disabled]="!confirmOrderCheckbox">
+        Замовити
+      </button>
+    </div>
+  </div>
+</div>

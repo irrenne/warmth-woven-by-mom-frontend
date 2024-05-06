@@ -31,6 +31,8 @@ import {JwtModule} from "@auth0/angular-jwt";
 import { UserRegistrationPageComponent } from './user-registration-page/user-registration-page.component';
 import { UserOrdersPageComponent } from './user-orders-page/user-orders-page.component';
 import { OrderDisplayComponent } from './order-display/order-display.component';
+import { CartComponent } from './cart/cart.component';
+import { OrderCartPageComponent } from './order-cart-page/order-cart-page.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { OrderDisplayComponent } from './order-display/order-display.component';
     UserLoginPageComponent,
     UserRegistrationPageComponent,
     UserOrdersPageComponent,
-    OrderDisplayComponent
+    OrderDisplayComponent,
+    CartComponent,
+    OrderCartPageComponent
   ],
   imports: [
     BrowserModule,

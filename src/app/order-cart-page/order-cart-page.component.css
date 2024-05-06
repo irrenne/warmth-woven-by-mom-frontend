@@ -1,0 +1,106 @@
+.order-container {
+  max-width: 80vw;
+  margin: 2vw auto;
+  padding: 2vw;
+  border: 1vw solid #f3f4f6;
+  border-radius: 2vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.25vw;
+}
+.order-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.left-section {
+  flex: 0 0 50%;
+}
+
+.right-section {
+  flex: 0 0 50%;
+  margin-left: 2vw;
+}
+
+.product-image-order {
+  width: 20vw;
+  height: auto;
+  margin-bottom: 2vw;
+  margin-left: 6vw;
+  border-radius: 0.3vw;
+}
+
+.shipping-options, .confirm-order {
+  margin-top: 2vw;
+  margin-bottom: 2vw;
+}
+
+label {
+  display: block;
+  margin-bottom: 1vw;
+}
+
+input[type="checkbox"] {
+  margin-right: 1vw;
+}
+
+.product-quantity {
+  margin-top: 10px;
+}
+
+.product-quantity input {
+  font-family: "Viaoda Libre", serif;
+  width: 50px;
+  padding: 5px;
+  margin-left: 5px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #f3f4f6;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.item-content {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.cart-item .product-image {
+  width: 100px;
+  height: auto;
+  margin-right: 15px;
+  border-radius: 0.3vw;
+}
+
+.item-details {
+  flex-grow: 1;
+}
+
+.item-details input {
+  font-family: "Viaoda Libre", serif;
+}
+
+.item-actions {
+  margin-left: auto; /* Aligns the cancel button to the right */
+}
+
+.total {
+  /*display: flex;*/
+  /*justify-content: space-between;*/
+  /*align-items: center;*/
+  font-size: 1.2em; /* Larger font for total */
+  margin-top: 20px;
+}
+
+.total-sum {
+  text-align: center;
+  flex-grow: 1;
+}

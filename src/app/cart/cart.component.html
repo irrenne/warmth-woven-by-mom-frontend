@@ -1,0 +1,46 @@
+<!-- cart.component.html -->
+<div>
+  <div *ngIf="cartItems.length > 0; else emptyCartTemplate">
+    <div class="cart-item" *ngFor="let item of cartItems">
+      <div class="item-content">
+        <img [src]="item.product?.imageUrl" alt="{{ item.product?.name }}" class="product-image">
+        <div class="item-details">
+          <p>{{ item.product?.name }}</p>
+          <p>Кількість: <input type="number" [(ngModel)]="item.quantity"
+                               (change)="updateQuantity(item)" min="1" max="{{item.product?.amount}}"></p>
+          <p>Ціна: {{ item.product?.price }}</p>
+        </div>
+      </div>
+      <div class="item-actions">
+        <button class="my-button" (click)="removeFromCart(item.product?.id)">Вилучити</button>
+      </div>
+    </div>
+    <div class="total">
+      <span class="total-sum">Разом: {{ totalPrice }}</span>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center">
+      <button class="my-button clear-cart" (click)="clearCart()">Очистити кошик</button>
+    </div>
+    <div class="view-more">
+      <div fxLayout="row" fxLayoutAlign="center">
+        <a href="/products">
+          <button class="my-button">Переглянути ще</button>
+        </a>
+        <button class="my-button" (click)="buyProducts()">Оформити замовлення</button>
+      </div>
+    </div>
+  </div>
+  <ng-template #emptyCartTemplate>
+    <div class="empty-cart">
+      <img src="/assets/preview/empty-cart-icon.png" alt="Empty Cart">
+      <h3>Кошик порожній</h3>
+    </div>
+    <div class="view-more">
+      <div fxLayout="row" fxLayoutAlign="center">
+        <a href="/products">
+          <button class="my-button">Перейти до покупок</button>
+        </a>
+      </div>
+    </div>
+  </ng-template>
+</div>

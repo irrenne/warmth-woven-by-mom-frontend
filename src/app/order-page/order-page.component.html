@@ -10,7 +10,7 @@
       <p>{{ product?.description }}</p>
       <div class="product-quantity">
         <label for="productQuantity">Кількість:</label>
-        <input type="number" id="productQuantity" [(ngModel)]="quantity" min="1">
+        <input type="number" id="productQuantity" [(ngModel)]="quantity" min="1" max="{{product?.amount}}">
       </div>
       <!-- Radio buttons for shipping options -->
       <div class="shipping-options">

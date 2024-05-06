@@ -9,6 +9,7 @@ import {ProductReview} from "../ProductReview";
 import {UserBasicInfo} from "../UserBasicInfo";
 import {Product} from "../Product";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {CartService} from "../services/cart.service";
 
 @Component({
   selector: 'app-product-view-page',
@@ -37,7 +38,8 @@ export class ProductViewPageComponent implements OnInit {
       private route: ActivatedRoute,
       private router: Router,
       private httpService: HttpService,
-      public authService: AuthorizationService
+      public authService: AuthorizationService,
+      private cartService: CartService
   ) {
     // Initialize the form group
     this.reviewForm = this.fb.group({
@@ -119,4 +121,11 @@ export class ProductViewPageComponent implements OnInit {
       this.router.navigate(['/login']);
     }
   }
+
+  addToCart(product: Product | null, quantity: number): void {
+    if (product) {
+      this.cartService.addToCart(product, quantity);
+    }
+  }
+
 }
