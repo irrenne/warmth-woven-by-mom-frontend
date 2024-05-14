@@ -40,7 +40,7 @@ h1{
 
 .hidden-text {
   max-width: calc((100vw - 40px) / 2);
-  margin: 5.556vw auto; /* Center the text horizontally */
+  margin: 5.556vw auto;
   font-size: 1.25vw;
   line-height: 1.6;
   text-align: justify;
@@ -51,11 +51,11 @@ h1{
 }
 
 .brand-started p {
-  font-size: 1.45vw; /* Increase the font size of the paragraph */
-  line-height: 1.6; /* Increase the line height for better readability */
-  text-align: justify; /* Ensure text starts from the same position on each line */
-  margin: 0; /* Remove any default margins */
-  padding: 0; /* Remove any default paddings */
+  font-size: 1.45vw;
+  line-height: 1.6;
+  text-align: justify;
+  margin: 0;
+  padding: 0;
 }
 
 .products-scroll {
@@ -66,7 +66,7 @@ h1{
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
-  max-width: calc(100vw - 40px); /* Adjust based on your margin and padding */
+  max-width: calc(100vw - 40px);
 }
 
 .scroll {
@@ -74,26 +74,25 @@ h1{
 }
 
 .scroll img {
-  max-width: 100%; /* Ensure image doesn't exceed its container width */
-  max-height: 34vw; /* Set a maximum height for the images */
-  height: auto; /* Allow the height to adjust proportionally */
-  margin-right: 0.69vw; /* Add spacing between images */
+  max-width: 100%;
+  max-height: 34vw;
+  height: auto;
+  margin-right: 0.69vw;
   border-radius: 0.3vw;
 }
 .scroll img:hover {
   border-radius: 1.389vw;
   transform: scale(1.04);
-  box-shadow: 0 0 10px rgba(211, 250, 238, 0.5); /* Add glow effect */
+  box-shadow: 0 0 10px rgba(211, 250, 238, 0.5);
 }
 
 
-/* Responsive styles */
 @media (max-width: 41.667vw) {
   .scroll-container {
-    max-width: calc(100vw - 20px); /* Adjust for smaller screens */
+    max-width: calc(100vw - 20px);
   }
 
   .scroll img {
-    max-height: 10.417vw; /* Adjust maximum height for smaller screens */
+    max-height: 10.417vw;
   }
 }

@@ -6,6 +6,7 @@ export class Order {
       public productId: number,
       public price: bigint,
       public withShipping: boolean,
+      public status: string,
       public items: OrderItem []
   ) {}
 }

@@ -1,44 +1,44 @@
 .product-card-container {
-  max-width: 100%; /* Adjust the maximum width to fit your design */
+  max-width: 100%;
   margin: 0 auto;
-  padding: 1vw; /* Change padding to a percentage of viewport width */
+  padding: 1vw;
 }
 
 .product {
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
-  max-width: 30vw; /* Change max-width to a percentage of viewport width */
+  max-width: 30vw;
   background-color: #fff;
-  border-radius: 0.3vw; /* Change border radius to a percentage of viewport width */
-  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.1); /* Change box-shadow to a percentage of viewport width */
-  padding: 2vw; /* Change padding to a percentage of viewport width */
+  border-radius: 0.3vw;
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.1);
+  padding: 2vw;
   transition: transform 0.3s ease;
   display: flex;
   flex-direction: column;
 }
 
 .product:hover {
-  transform: translateY(-1vw); /* Change hover effect to a percentage of viewport width */
+  transform: translateY(-1vw);
 }
 
 .product-image {
-  max-width: 100%; /* Ensure image doesn't exceed its container width */
-  max-height: 30vw; /* Set a maximum height for the images */
-  height: auto; /* Allow the height to adjust proportionally */
-  border-radius: 0.3vw; /* Change border radius to a percentage of viewport width */
-  margin-bottom: 2vw; /* Change margin to a percentage of viewport width */
+  max-width: 100%;
+  max-height: 30vw;
+  height: auto;
+  border-radius: 0.3vw;
+  margin-bottom: 2vw;
 }
 
 .product-name {
-  font-size: 1.4vw; /* Change font size to a percentage of viewport width */
+  font-size: 1.4vw;
   font-weight: bold;
-  margin-bottom: 0.5vw; /* Change margin to a percentage of viewport width */
+  margin-bottom: 0.5vw;
 }
 
 .product-description {
-  font-size: 1vw; /* Change font size to a percentage of viewport width */
-  margin-bottom: 0.7vw; /* Change margin to a percentage of viewport width */
+  font-size: 1vw;
+  margin-bottom: 0.7vw;
 }
 
 .product-info {
@@ -48,12 +48,12 @@
 }
 
 .product-price {
-  font-size: 1.2vw; /* Change font size to a percentage of viewport width */
+  font-size: 1.2vw;
   color: #474748;
 }
 
 .product-stock {
-  font-size: 1.05vw; /* Change font size to a percentage of viewport width */
+  font-size: 1.05vw;
 }
 
 .in-stock {

@@ -1,5 +1,3 @@
-/* You can add global styles to this file, and also import other style files */
-
 html, body { height: 100%; }
 body { margin: 0; font-family: "Viaoda Libre", serif; }
 
@@ -19,6 +17,9 @@ body { margin: 0; font-family: "Viaoda Libre", serif; }
   border: none;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.23);
 }
+p{
+  font-size: 1.25vw;
+}
 
 .my-button:hover:not([disabled]) {
   background-color: #f5f5f5;
@@ -29,5 +30,9 @@ body { margin: 0; font-family: "Viaoda Libre", serif; }
   background-color: #f5f5f5;
   color: #999;
   cursor: not-allowed;
+}
+
+#left-button {
+  margin-right: 1vw;
 }
 

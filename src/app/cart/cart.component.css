@@ -1,4 +1,11 @@
 /* cart.component.css */
+.cart-container {
+  max-width: 80%;
+  margin: auto;
+  display: block;
+  margin-top: 2vw;
+}
+
 .cart-item {
   display: flex;
   justify-content: space-between;
@@ -15,7 +22,7 @@
 }
 
 .cart-item .product-image {
-  width: 100px;
+  width: 9vw;
   height: auto;
   margin-right: 15px;
   border-radius: 0.3vw;
@@ -29,14 +36,14 @@
 }
 
 .item-actions {
-  margin-left: auto; /* Aligns the cancel button to the right */
+  margin-left: auto;
 }
 
 .total {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 1.2em; /* Larger font for total */
+  font-size: 1.2em;
   margin-top: 20px;
 }
 
@@ -46,10 +53,15 @@
 }
 
 .clear-cart {
-  margin-left: auto; /* Aligns the clear cart button to the right */
+  margin-left: auto;
 }
 
 .empty-cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 62vh;
   text-align: center;
   padding: 20px;
 }

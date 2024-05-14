@@ -16,3 +16,58 @@ h2{
   flex-grow: 1;
   text-align: center;
 }
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.my-button {
+  margin: 0 10px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  font-family: "Viaoda Libre", serif;
+}
+
+.search-bar .sorting-options {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.search-bar .sorting-options label {
+  margin-right: 10px;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.search-bar .sorting-options select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: inherit;
+  background-color: #ffffff;
+}
+
+.search-bar .sorting-options button {
+  min-width: 0;
+  font-family: inherit;
+  font-size: inherit;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.search-bar .sorting-options button:focus {
+  outline: none;
+}

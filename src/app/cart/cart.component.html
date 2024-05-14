@@ -1,6 +1,6 @@
 <!-- cart.component.html -->
 <div>
-  <div *ngIf="cartItems.length > 0; else emptyCartTemplate">
+  <div class="cart-container" *ngIf="cartItems.length > 0; else emptyCartTemplate">
     <div class="cart-item" *ngFor="let item of cartItems">
       <div class="item-content">
         <img [src]="item.product?.imageUrl" alt="{{ item.product?.name }}" class="product-image">
@@ -24,7 +24,7 @@
     <div class="view-more">
       <div fxLayout="row" fxLayoutAlign="center">
         <a href="/products">
-          <button class="my-button">Переглянути ще</button>
+          <button class="my-button" id="left-button">Переглянути ще</button>
         </a>
         <button class="my-button" (click)="buyProducts()">Оформити замовлення</button>
       </div>

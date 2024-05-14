@@ -74,7 +74,7 @@ input[type="checkbox"] {
 }
 
 .cart-item .product-image {
-  width: 100px;
+  width: 9vw;
   height: auto;
   margin-right: 15px;
   border-radius: 0.3vw;
@@ -89,14 +89,11 @@ input[type="checkbox"] {
 }
 
 .item-actions {
-  margin-left: auto; /* Aligns the cancel button to the right */
+  margin-left: auto;
 }
 
 .total {
-  /*display: flex;*/
-  /*justify-content: space-between;*/
-  /*align-items: center;*/
-  font-size: 1.2em; /* Larger font for total */
+  font-size: 1.2em;
   margin-top: 20px;
 }
 

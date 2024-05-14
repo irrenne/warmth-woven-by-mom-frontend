@@ -1,8 +1,32 @@
 <!-- user-orders-page.component.html -->
 <div class="orders-page">
-  <h2>Усі замовлення</h2>
-  <div *ngIf="orders.length > 0; else noOrdersTemplate" class="orders-table">
-    <app-order-display *ngFor="let order of orders" [order]="order"></app-order-display>
+<!--  <h2>Усі замовлення</h2>-->
+  <div *ngIf="orders.length > 0; else noOrdersTemplate">
+    <div class="search-bar">
+      <div class="sorting-options">
+        <label>Сортувати за:</label>
+        <select [(ngModel)]="sortField" (change)="sort(sortField)">
+          <option value="status">Статусом</option>
+          <option value="price">Сумою</option>
+          <option value="updatedAt">Останніми змінами</option>
+        </select>
+        <button mat-icon-button (click)="toggleSortDirection()">
+          <mat-icon>{{ sortDirection === 'asc' ? 'arrow_upward' : 'arrow_downward' }}</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div class="orders-table">
+      <app-order-display *ngFor="let order of orders" [order]="order"></app-order-display>
+    </div>
+    <div class="pagination">
+      <button class="my-button" [disabled]="currentPage === 0"
+              (click)="changePage(currentPage - 1)">Попередня
+      </button>
+      <span>{{ currentPage + 1 }} / {{ totalPages }}</span>
+      <button class="my-button" [disabled]="currentPage === totalPages - 1"
+              (click)="changePage(currentPage + 1)">Наступна
+      </button>
+    </div>
   </div>
   <ng-template #noOrdersTemplate>
     <div class="center-message">Ще немає замовлень</div>

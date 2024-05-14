@@ -2,9 +2,10 @@
   <div class="order-content">
     <div class="images-container">
       <img *ngFor="let item of order.items" [src]="item.product?.imageUrl" [alt]="item.product?.name"
-           class="product-image-order">
+           class="product-image-order" (click)="item.product?.id !== null && navigateToProductView(item.product?.id)">
     </div>
     <div class="order-details">
+      <p>Статус: <span [class]="getStatusClass(order.status)">{{ getStatusText(order.status) }}</span></p>
       <p>Сума: {{ order.price }}</p>
       <p>{{ order.withShipping ? 'З доставкою' : 'Без доставки' }}</p>
       <ul>

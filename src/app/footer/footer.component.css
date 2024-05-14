@@ -1,12 +1,12 @@
 .footer {
   flex: auto;
   max-width: 100%;
-  background-color: white; /* Light grey background color */
-  color: #333; /* Dark text color */
-  padding: 20px; /* Add padding to the footer */
-  text-align: center; /* Center-align the text */
-  margin-top: 2.778vw; /* Add space above the footer */
-  border-top: 1px solid #f3f4f6; /* Add a border at the top of the footer */
+  background-color: white;
+  color: #333;
+  padding: 20px;
+  text-align: center;
+  margin-top: 2.778vw;
+  border-top: 1px solid #f3f4f6;
 }
 
 .footer p{

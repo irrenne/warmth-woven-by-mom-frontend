@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {catchError, Observable} from "rxjs";
 import {AuthorizationService} from "./authorization.service";
 
@@ -15,13 +15,13 @@ export class HttpService {
   }
 
   // Метод для виконання GET-запиту
-  get(url: string): Observable<any> {
-    const headers = new HttpHeaders({
+  get(url: string, options?: { headers?: HttpHeaders, params?: HttpParams }): Observable<any> {
+    let headers = options?.headers || new HttpHeaders({
       'Authorization': this.authorizationService.getBearerToken()
     });
 
-    return this.http.get(url, { headers }).pipe(
-      catchError(error => {
+    return this.http.get(url, { headers: headers, params: options?.params }).pipe(
+        catchError(error => {
         throw 'Помилка при виконанні GET-запиту: ' + error;
       })
     );

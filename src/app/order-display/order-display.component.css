@@ -1,9 +1,11 @@
 .order-container {
-  max-width: 70vw;
+  max-width: 50vw;
   margin: 2vw auto;
   padding: 2vw;
-  border: 1vw solid #f3f4f6;
-  border-radius: 2vw;
+  background-color: #fff;
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  border-radius: 0.5vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,41 +14,38 @@
 
 .order-content {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
+  justify-content: space-around;
 }
 
 .left-section {
-  flex: 0 0 42%;
+  flex: 0 0 40%;
 }
 
 .right-section {
-  flex: 0 0 65%;
-  margin-left: 2vw;
+  flex: 0 0 60%;
 }
-
-/*.product-image-order {*/
-/*  width: 20vw;*/
-/*  height: auto;*/
-/*  margin-bottom: 2vw;*/
-/*  margin-left: 6vw;*/
-/*  border-radius: 0.3vw;*/
-/*}*/
 
 .images-container {
   overflow-x: auto;
   white-space: nowrap;
+  width: 44%;
+  height: 20vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 0.3vw;
 }
+
 
 .product-image-order {
   width: 15vw;
   height: auto;
-  display: inline-block;
+  display: inline-flex;
   vertical-align: top;
-  margin-bottom: 2vw;
-  margin-left: 6vw;
-  margin-right: 6vw;
+  margin-left: 1vw;
+  margin-right: 1vw;
   border-radius: 0.3vw;
 }
 
@@ -55,7 +54,7 @@ label {
   margin-bottom: 1vw;
 }
 
-.order-details{
+.order-details {
   margin-right: 6vw;
 }
 
@@ -66,4 +65,12 @@ label {
 
 .order-details li {
   margin-bottom: 5px;
+}
+
+.status-in-progress {
+  color: deepskyblue;
+}
+
+.status-complete {
+  color: green;
 }
