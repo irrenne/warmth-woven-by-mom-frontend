@@ -8,35 +8,13 @@ import {AuthorizationService} from "./services/authorization.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private router: Router, public authService: AuthorizationService) {
+  constructor(public authService: AuthorizationService) {
   }
 
-  redirectToHome() {
-    this.router.navigate(['/']);
-  }
-
-  redirectToLogin() {
-    if (!this.authService.isLoggedIn()) {
-      this.router.navigate(['/login']);
-    } else {
-      this.router.navigate(['/orders']);
-    }
-  }
-
-  redirectToOrders() {
+  checkUserIsAdmin(): boolean {
     if (this.authService.isLoggedIn()) {
-      this.router.navigate(['/orders']);
-    } else {
-      this.router.navigate(['/login']);
+      return this.authService.isAdmin()
     }
-  }
-
-  redirectToRegister() {
-    this.router.navigate(['/register']);
-  }
-
-  logout() {
-    this.authService.logout(); // Ensure this method exists to handle logout
-    this.router.navigate(['/']);
+    return false;
   }
 }

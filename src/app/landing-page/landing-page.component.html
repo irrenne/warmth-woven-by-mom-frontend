@@ -1,60 +1,134 @@
 <!-- landing-page.component.html -->
-<div class="landing-page">
+<ng-container *ngIf="checkUserIsAdmin(); else userRole">
+  <div class="landing-page">
 
-  <!-- Header -->
-  <div class="header" [@fadeIn] (click)="toggleTextVisibility()">
-    <h1>Вітаємо в Теплому Місці</h1>
-    <p>Дізнайтесь про наші вироби ручної роботи</p>
-  </div>
+    <div *ngIf="orders && orders.length > 0; else noOrders">
+      <div class="order-table">
+        <h2>Інформація замовлень</h2>
+        <table>
+          <thead>
+          <tr>
+            <th>№</th>
+            <th>Кількість товарів</th>
+            <th>Сума</th>
+            <th>З доставкою</th>
+            <th>Статус</th>
+            <th>Змінено</th>
+            <th>Створено</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let order of orders">
+            <td>{{ order.id }}</td>
+            <td>{{ order.items.length }}</td>
+            <td>{{ order.price }}</td>
+            <td>{{ order.withShipping ? 'Так' : 'Ні' }}</td>
+            <td><span [class]="getStatusClass(order.status)">{{ getStatusText(order.status) }}</span></td>
+            <td>{{ order.updatedAt | date }}</td>
+            <td>{{ order.createdAt | date }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="view-orders">
+        <div fxLayout="row" fxLayoutAlign="center">
+          <a href="/all/orders">
+            <button class="my-button">Переглянути замовлення</button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <ng-template #noOrders>
+      <p>Замовлень ще немає</p>
+      <div class="view-more">
+        <div fxLayout="row" fxLayoutAlign="center">
+          <a href="/orders">
+            <button class="my-button" disabled>Замовлення</button>
+          </a>
+        </div>
+      </div>
+    </ng-template>
 
-  <div class="hidden-text" *ngIf="isTextVisible">
-    <p>Мати може віддати своїм дітям безмежно багато любові. Але на цьому не закінчується. Мама робить усе з любов'ю.
-      Тому наші вироби не лише гріють через вовну, але й через ту любов, яку мати вклала в них.</p>
-  </div>
-
-
-  <!-- Products Scroll -->
-  <div class="products-scroll" [@slideRight]>
-    <h2>Рекомендовано</h2>
-    <div class="scroll-container">
-      <div class="scroll">
-        <img *ngFor="let product of products" [src]="product.imageUrl" [alt]="product.name" (click)="product.id !== null && navigateToProductView(product.id)">
+    <div class="products-scroll" [@fadeIn]>
+      <h2>Вироби</h2>
+      <div class="scroll-container">
+        <div class="scroll">
+          <img *ngFor="let product of products" [src]="product.imageUrl" [alt]="product.name"
+               (click)="product.id !== null && navigateToProductView(product.id)">
+        </div>
+      </div>
+    </div>
+    <div class="view-more">
+      <div fxLayout="row" fxLayoutAlign="center">
+        <a href="/products">
+          <button class="my-button">Переглянути всі</button>
+        </a>
       </div>
     </div>
   </div>
+</ng-container>
+<ng-template #userRole>
+  <div class="landing-page">
 
-  <!-- Brand Story -->
-  <div class="brand-started">
-    <h2 [@fadeIn]>Про Нас</h2>
-    <p [@slideRight]>
-      Материнська любов - це несамовита сила, що розпливається від меж фізичного у духовний світ.
-      Коли мати створює щось зі своєю душею, вона наче використовує надзвичайну магію,
-      перетворюючи прості предмети на неповторні скарби.
+    <!-- Header -->
+    <div class="header" [@fadeIn] (click)="toggleTextVisibility()">
+      <h1>Вітаємо в Теплому Місці</h1>
+      <p>Дізнайтесь про наші вироби ручної роботи</p>
+    </div>
 
-      У нашій крамниці кожен виріб є свідченням цієї величезної магії. Кожна складка,
-      кожна деталь - це витвір не лише рук, але й материнського серця. Гріє не лише вовна,
-      але й неповторна енергія любові. Наші вироби - це втілення цієї любові, вони випромінюють
-      тепло і затишок, знаходячи відгук у серцях тих, хто натрапляє на них.
-    </p>
-  </div>
+    <div class="hidden-text" *ngIf="isTextVisible">
+      <p>Мати може віддати своїм дітям безмежно багато любові. Але на цьому не закінчується. Мама
+        робить усе з любов'ю.
+        Тому наші вироби не лише гріють через вовну, але й через ту любов, яку мати вклала в
+        них.</p>
+    </div>
 
-  <!-- Products Scroll -->
-  <div class="products-scroll" [@slideRight]>
-    <h2>Більше Виробів</h2>
-    <div class="scroll-container">
-      <div class="scroll">
-        <img *ngFor="let product of products2" [src]="product.imageUrl" [alt]="product.name" (click)="product.id !== null && navigateToProductView(product.id)">
+
+    <!-- Products Scroll -->
+    <div class="products-scroll" [@slideRight]>
+      <h2>Рекомендовано</h2>
+      <div class="scroll-container">
+        <div class="scroll">
+          <img *ngFor="let product of products" [src]="product.imageUrl" [alt]="product.name"
+               (click)="product.id !== null && navigateToProductView(product.id)">
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- View More Button -->
-  <div class="view-more">
-    <div fxLayout="row" fxLayoutAlign="center">
-      <a href="/products">
-        <button class="my-button">Переглянути ще</button>
-      </a>
+    <!-- Brand Story -->
+    <div class="brand-started">
+      <h2 [@fadeIn]>Про Нас</h2>
+      <p [@slideRight]>
+        Материнська любов - це несамовита сила, що розпливається від меж фізичного у духовний світ.
+        Коли мати створює щось зі своєю душею, вона наче використовує надзвичайну магію,
+        перетворюючи прості предмети на неповторні скарби.
+
+        У нашій крамниці кожен виріб є свідченням цієї величезної магії. Кожна складка,
+        кожна деталь - це витвір не лише рук, але й материнського серця. Гріє не лише вовна,
+        але й неповторна енергія любові. Наші вироби - це втілення цієї любові, вони випромінюють
+        тепло і затишок, знаходячи відгук у серцях тих, хто натрапляє на них.
+      </p>
     </div>
-  </div>
 
-</div>
+    <!-- Products Scroll -->
+    <div class="products-scroll" [@slideRight]>
+      <h2>Більше Виробів</h2>
+      <div class="scroll-container">
+        <div class="scroll">
+          <img *ngFor="let product of products2" [src]="product.imageUrl" [alt]="product.name"
+               (click)="product.id !== null && navigateToProductView(product.id)">
+        </div>
+      </div>
+    </div>
+
+    <!-- View More Button -->
+    <div class="view-more">
+      <div fxLayout="row" fxLayoutAlign="center">
+        <a href="/products">
+          <button class="my-button">Переглянути ще</button>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</ng-template>

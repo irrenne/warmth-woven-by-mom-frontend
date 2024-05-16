@@ -1,0 +1,52 @@
+.product-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: white;
+}
+
+.product-form {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.product-details {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  font-family: "Viaoda Libre", serif;
+  margin: 5vw 0;
+}
+
+.product-image {
+  width: 30vw;
+  height: auto;
+  border-radius: 0.3vw;
+  margin-right: 4vw;
+}
+
+.product-info {
+  flex: 1;
+  text-align: left;
+}
+
+.product-info h2,
+.product-info p,
+.product-info input,
+.product-info textarea {
+  font-family: "Viaoda Libre", serif;
+  font-size: 1.35vw;
+  margin: 1vw 0;
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+}
+
+.product-info input,
+.product-info textarea {
+  padding: 0.5vw;
+  border: 1px solid #ccc;
+  border-radius: 0.3vw;
+}

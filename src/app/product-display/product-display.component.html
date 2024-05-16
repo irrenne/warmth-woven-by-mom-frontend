@@ -1,4 +1,4 @@
-<div class="product-card-container" [@fadeIn] (click)="product.id !== null && navigateToProductView(product.id)">
+<div class="product-card-container" (click)="product.id !== null && navigateToProductView(product.id)">
   <div class="product">
     <img [src]="product.imageUrl" [alt]="product.name" class="product-image">
     <h3 class="product-name">{{ product.name }}</h3>

@@ -1,6 +1,6 @@
 <div class="order-container">
   <h2>Замовлення</h2>
-  <div class="order-content">
+  <div class="order-content" *ngIf="items.length > 0; else emptyCartTemplate">
     <div class="left-section">
       <div class="cart-item" *ngFor="let item of items">
         <div class="item-content">
@@ -24,23 +24,26 @@
       <!-- Radio buttons for shipping options -->
       <div class="shipping-options">
         <label>
-          <input type="radio" name="shippingOption" [(ngModel)]="withShipping" [value]="true"> З
-          доставкою
+          <input type="radio" name="shippingOption" [(ngModel)]="withShipping" [value]="true"> З доставкою
         </label>
         <label>
-          <input type="radio" name="shippingOption" [(ngModel)]="withShipping" [value]="false"> Без
-          доставки
+          <input type="radio" name="shippingOption" [(ngModel)]="withShipping" [value]="false"> Без доставки
         </label>
       </div>
-      <!-- Checkbox to confirm the order -->
       <div class="confirm-order">
         <label>
           <input type="checkbox" [(ngModel)]="confirmOrderCheckbox"> Я підтверджую замовлення
         </label>
       </div>
-      <button class="my-button" (click)="confirmOrder()" [disabled]="!confirmOrderCheckbox">
-        Замовити
-      </button>
+      <button class="my-button" (click)="confirmOrder()" [disabled]="!confirmOrderCheckbox">Замовити</button>
     </div>
   </div>
+  <ng-template #emptyCartTemplate>
+    <div class="empty-cart">
+      <h3>Жодного товару не обрано</h3>
+      <a href="/products">
+        <button class="my-button">Перейти до покупок</button>
+      </a>
+    </div>
+  </ng-template>
 </div>

@@ -45,4 +45,18 @@ export class AuthorizationService {
     const token = this.getJwtToken();
     return `Bearer ${token}`;
   }
+
+  getUserRole(): string | null {
+    const token = this.getJwtAccessToken();
+    if (token) {
+      const decodedToken = this.jwtHelper.decodeToken(token);
+      return decodedToken.role || null;
+    }
+    return null;
+  }
+
+  isAdmin(): boolean {
+    const userRole = this.getUserRole();
+    return userRole === 'ADMIN';
+  }
 }

@@ -20,7 +20,7 @@
     </div>
   </div>
 
-  <div class="products-table">
+  <div class="products-table" [@fadeIn]>
     <div class="product-row" *ngFor="let row of productRows">
       <app-product-display *ngFor="let product of row" [product]="product"></app-product-display>
     </div>

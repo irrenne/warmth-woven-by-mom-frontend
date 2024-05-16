@@ -1,0 +1,43 @@
+<!-- user-orders-page.component.html -->
+<div class="orders-page">
+    <div class="search-bar">
+      <div class="sorting-options">
+        <label>Сортувати за:</label>
+        <select [(ngModel)]="sortField" (change)="sort(sortField)">
+          <option value="status">Статусом</option>
+          <option value="price">Сумою</option>
+          <option value="updatedAt">Останніми змінами</option>
+          <option value="createdAt">Датою створення</option>
+          <option value="userId">Покупцем</option>
+        </select>
+        <button mat-icon-button (click)="toggleSortDirection()">
+          <mat-icon>{{ sortDirection === 'asc' ? 'arrow_upward' : 'arrow_downward' }}</mat-icon>
+        </button>
+        <div class="filter-options">
+          <label>Фільтрувати за статусом:</label>
+          <select [(ngModel)]="filterStatus">
+            <option value="">Всі</option>
+            <option *ngFor="let status of orderStatuses" [value]="status">{{ statusDisplayMap[status] }}</option>
+          </select>
+          <button class="filter-button" (click)="filterOrders()">Пошук</button>
+        </div>
+      </div>
+    </div>
+  <div *ngIf="orders.length > 0; else noOrdersTemplate">
+    <div class="orders-table">
+      <app-order-display *ngFor="let order of orders" [order]="order" [userBasicInfos]="userBasicInfos"></app-order-display>
+    </div>
+    <div class="pagination">
+      <button class="my-button" [disabled]="currentPage === 0"
+              (click)="changePage(currentPage - 1)">Попередня
+      </button>
+      <span>{{ currentPage + 1 }} / {{ totalPages }}</span>
+      <button class="my-button" [disabled]="currentPage === totalPages - 1"
+              (click)="changePage(currentPage + 1)">Наступна
+      </button>
+    </div>
+  </div>
+  <ng-template #noOrdersTemplate>
+    <div class="center-message">Немає замовлень</div>
+  </ng-template>
+</div>

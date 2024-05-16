@@ -4,7 +4,7 @@
     <div class="product-info">
       <h2>{{ product?.name }}</h2>
       <p>{{ product?.description }}</p>
-      <p>Price: {{ product?.price }}</p>
+      <p>Ціна: {{ product?.price }}</p>
       <button class="my-button" (click)="buyProduct()" [disabled]="!product?.inStock">Купити
       </button>
       <button class="my-button" (click)="addToCart(product, 1)" [disabled]="!product?.inStock">Додати в кошик</button>
@@ -70,7 +70,7 @@
     <div class="review-header">
       <h2>Відгуки</h2>
       <button mat-button (click)="toggleReviewForm()"
-              *ngIf="authService.isLoggedIn()">{{ showReviewForm ? 'Сховати форму'
+              *ngIf="authService.isLoggedIn()">{{ showReviewForm ? 'Сховати'
           : 'Додати відгук' }}</button>
     </div>
     <div *ngIf="showReviewForm" class="form-container">
@@ -85,10 +85,13 @@
       <p>Щоб залишити відгук, зареєструйтесь або увійдіть.</p>
     </div>
     <div *ngFor="let item of reviews" class="review-item">
-      <p><strong>{{ item.user.name || item.user.email }}</strong>:</p>
-      <p> {{ item.review.comment }}</p>
+      <div class="review-content">
+        <p class="review-author"><strong>{{ item.user.name || item.user.email }}</strong>:</p>
+        <p class="review-comment">{{ item.review.comment }}</p>
+      </div>
     </div>
   </div>
+
 
 </div>
 

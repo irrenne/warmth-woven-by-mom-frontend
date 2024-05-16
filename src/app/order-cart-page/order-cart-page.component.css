@@ -101,3 +101,12 @@ input[type="checkbox"] {
   text-align: center;
   flex-grow: 1;
 }
+
+.empty-cart {
+  text-align: center;
+  margin-top: 2vw;
+}
+
+.empty-cart h3 {
+  margin-bottom: 4vw;
+}

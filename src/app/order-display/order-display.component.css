@@ -3,13 +3,21 @@
   margin: 2vw auto;
   padding: 2vw;
   background-color: #fff;
-  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   border-radius: 0.5vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 1.25vw;
+  position: relative;
+}
+.date-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
+  padding: 1vw;
 }
 
 .order-content {
@@ -20,11 +28,11 @@
 }
 
 .left-section {
-  flex: 0 0 40%;
+  flex: 0 0 45%;
 }
 
 .right-section {
-  flex: 0 0 60%;
+  flex: 0 0 55%;
 }
 
 .images-container {
@@ -47,6 +55,11 @@
   margin-left: 1vw;
   margin-right: 1vw;
   border-radius: 0.3vw;
+  transition: opacity 0.3s ease;
+}
+
+.product-image-order:hover {
+  opacity: 0.7;
 }
 
 label {
@@ -73,4 +86,14 @@ label {
 
 .status-complete {
   color: green;
+}
+
+.status-canceled {
+  color: red;
+}
+
+.cancel-button-container {
+  text-align: right;
+  margin-top: 1vw;
+  width: 100%;
 }

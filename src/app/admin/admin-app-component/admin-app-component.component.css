@@ -1,0 +1,58 @@
+body {
+  font-family: "Viaoda Libre", serif;
+  background-color: white;
+}
+
+.mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: white;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.brand-name {
+  font-family: "Viaoda Libre", serif;
+  text-align: center;
+  width: 100%;
+}
+
+.brand-name-clickable {
+  font-family: "Viaoda Libre", serif;
+}
+
+.brand-name-clickable:hover {
+  color: darkgrey;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.sidenav-container {
+  font-family: "Viaoda Libre", serif;
+  height: 100vh;
+  background-color: white;
+}
+
+.custom-font {
+  font-family: "Viaoda Libre", serif;
+}
+
+:host /deep/ .mdc-list-item__primary-text {
+  font-family: "Viaoda Libre", serif;
+}
+
+.mat-sidenav {
+  width: 25%;
+  padding: 1%;
+}
+
+mat-nav-list {
+  width: 100%;
+}

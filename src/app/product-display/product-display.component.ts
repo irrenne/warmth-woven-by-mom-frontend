@@ -38,10 +38,10 @@ export class ProductDisplayComponent {
   ) { }
 
   navigateToProductView(productId: number): void {
-    // if (this.authService.isLoggedIn()) {
+    if (this.authService.isLoggedIn() && this.authService.isAdmin()) {
+      this.router.navigate(['/products/edit', productId]);
+    } else {
       this.router.navigate(['/products', productId]);
-    // } else {
-    //   this.router.navigate(['/login']);
-    // }
+    }
   }
 }

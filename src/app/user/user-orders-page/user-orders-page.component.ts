@@ -2,10 +2,10 @@
 
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Order} from '../Order';
-import {Product} from '../Product';
-import {AuthorizationService} from '../services/authorization.service';
-import {HttpService} from '../services/http.service';
+import {Order} from '../../Order';
+import {Product} from '../../Product';
+import {AuthorizationService} from '../../services/authorization.service';
+import {HttpService} from '../../services/http.service';
 import {JwtHelperService} from "@auth0/angular-jwt";
 import {HttpParams} from "@angular/common/http";
 

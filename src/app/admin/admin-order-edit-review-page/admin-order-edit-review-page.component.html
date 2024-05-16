@@ -1,0 +1,25 @@
+<div class="orders-page">
+  <div class="order-container">
+    <h2>Замовлення</h2>
+    <div class="order-info">
+      <p>№: {{order?.id}}</p>
+      <p>Статус: <span [class]="getStatusClass(order?.status)">{{ getStatusText(
+          order?.status) }}</span></p>
+      <p>Сума: {{ order?.price }}</p>
+      <p>{{ order?.withShipping ? 'З доставкою' : 'Без доставки' }}</p>
+      <div class="status-update-form">
+        <label for="status">Змінити статус:</label>
+        <select id="status" [(ngModel)]="updatedStatus">
+          <option value="IN_PROGRESS">В процесі</option>
+          <option value="COMPLETE">Виконано</option>
+          <option value="CANCELED">Скасовано</option>
+        </select>
+        <button class="my-button" (click)="updateStatus()">Оновити статус</button>
+      </div>
+    </div>
+  </div>
+  <div class="orders-table">
+    <app-admin-order-view-display *ngFor="let item of order?.items"
+                                  [item]="item"></app-admin-order-view-display>
+  </div>
+</div>

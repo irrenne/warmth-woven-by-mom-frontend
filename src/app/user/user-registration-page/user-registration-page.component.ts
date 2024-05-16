@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpService } from '../services/http.service';
-import {AuthorizationService} from "../services/authorization.service";
+import { HttpService } from '../../services/http.service';
+import {AuthorizationService} from "../../services/authorization.service";
 
 @Component({
   selector: 'app-user-registration-page',

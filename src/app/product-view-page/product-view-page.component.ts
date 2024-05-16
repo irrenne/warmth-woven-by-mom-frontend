@@ -69,7 +69,6 @@ export class ProductViewPageComponent implements OnInit {
   loadReviews(productId: number): void {
     this.httpService.get(`http://localhost:9191/api/product/review/product/${productId}`).pipe(
         switchMap((reviews: any[]) => {
-          // Assuming the reviews are expected to be an array of any
           if (reviews.length > 0) {
             return forkJoin(
                 reviews.map((review: any) => {
@@ -107,7 +106,6 @@ export class ProductViewPageComponent implements OnInit {
           this.loadReviews(this.product.id);
       });
     } else {
-      // Optionally handle the case where userId is null
       console.error('User ID is null or product details are incomplete.');
     }
   }

@@ -1,11 +1,27 @@
 import {Component} from '@angular/core';
 import {Product} from "../Product";
 import {HttpClient, HttpParams} from "@angular/common/http";
+import {animate, style, transition, trigger} from "@angular/animations";
 
 @Component({
   selector: 'app-product-page',
   templateUrl: './product-page.component.html',
-  styleUrls: ['./product-page.component.css']
+  styleUrls: ['./product-page.component.css'],
+  animations: [
+    trigger('fadeIn', [
+      transition(':enter', [
+        style({
+          opacity: 0,
+          filter: 'blur(2px)'
+        }),
+        animate('0.6s ease-in-out',
+            style({
+              opacity: 1,
+              filter: 'blur(0)'
+            })),
+      ]),
+    ])
+  ]
 })
 export class ProductPageComponent {
   products: Product[] = [];

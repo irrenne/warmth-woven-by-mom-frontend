@@ -1,0 +1,52 @@
+<mat-sidenav-container class="sidenav-container">
+  <!-- Main content area -->
+  <mat-sidenav #sidenav mode="over" position="start">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/" (click)="sidenav.close()">Головна</a>
+      <a mat-list-item routerLink="/products" (click)="sidenav.close()">Вироби</a>
+      <a mat-list-item routerLink="/all/orders" (click)="sidenav.close()">Замовлення</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <!-- Button to open the side menu -->
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
+              (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="custom-font brand-name">
+          <span class="brand-name-clickable" (click)="redirectToHome()">WarmthWovenByMom</span>
+        </span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Login">
+        <mat-icon>admin_panel_settings</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <ng-container *ngIf="authService.isLoggedIn(); else loggedOut">
+          <button mat-menu-item (click)="logout()">
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Вихід</span>
+          </button>
+        </ng-container>
+        <ng-template #loggedOut>
+          <button mat-menu-item (click)="redirectToLogin()">
+            <mat-icon>login</mat-icon>
+            <span>Увійти</span>
+          </button>
+        </ng-template>
+      </mat-menu>
+      <button mat-icon-button [matMenuTriggerFor]="ordersMenu" aria-label="Shopping Cart">
+        <mat-icon>assignment</mat-icon>
+      </button>
+      <mat-menu #ordersMenu="matMenu">
+        <button mat-menu-item (click)="redirectToOrders()">
+          <mat-icon>checklist</mat-icon>
+          <span>Переглянути замовлення</span>
+        </button>
+      </mat-menu>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>

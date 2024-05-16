@@ -1,18 +1,52 @@
-<div class="order-container" [@fadeIn]>
-  <div class="order-content">
-    <div class="images-container">
-      <img *ngFor="let item of order.items" [src]="item.product?.imageUrl" [alt]="item.product?.name"
-           class="product-image-order" (click)="item.product?.id !== null && navigateToProductView(item.product?.id)">
-    </div>
-    <div class="order-details">
-      <p>Статус: <span [class]="getStatusClass(order.status)">{{ getStatusText(order.status) }}</span></p>
-      <p>Сума: {{ order.price }}</p>
-      <p>{{ order.withShipping ? 'З доставкою' : 'Без доставки' }}</p>
-      <ul>
-        <li *ngFor="let item of order.items">
-          <strong>{{ item.product?.name }}</strong> (Кількість: {{ item.quantity }})
-        </li>
-      </ul>
+<ng-container *ngIf="checkUserIsAdmin(); else userRole">
+  <div class="order-container" [@fadeIn] (click)="order.id !== null && navigateToOrderView(order.id)">
+    <div class="order-content">
+      <div class="date-container">
+        <p>Оновлено: {{order.updatedAt | date}}</p>
+      </div>
+      <div class="left-section">
+        <p>№: {{order.id}}</p>
+        <p>Статус: <span [class]="getStatusClass(order.status)">{{ getStatusText(
+            order.status) }}</span></p>
+        <p>Сума: {{ order.price }}</p>
+        <p>{{ order.withShipping ? 'З доставкою' : 'Без доставки' }}</p>
+        <p>Пошта покупця: {{ userBasicInfos[order.userId].email }}</p>
+      </div>
+      <div class="order-details right-section">
+        <ul>
+          <li *ngFor="let item of order.items"
+              (click)="item.product?.id !== null && navigateToProductView(item.product?.id)">
+            <strong>{{ item.product?.name }}</strong> (Кількість: {{ item.quantity }})
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
+</ng-container>
+<ng-template #userRole>
+  <div class="order-container" [@fadeIn]>
+    <div class="order-content">
+      <div class="images-container">
+        <img *ngFor="let item of order.items" [src]="item.product?.imageUrl"
+             [alt]="item.product?.name"
+             class="product-image-order"
+             (click)="item.product?.id !== null && navigateToProductView(item.product?.id)">
+      </div>
+      <div class="order-details">
+        <p>№: {{order.id}}</p>
+        <p>Статус: <span [class]="getStatusClass(order.status)">{{ getStatusText(
+            order.status) }}</span></p>
+        <p>Сума: {{ order.price }}</p>
+        <p>{{ order.withShipping ? 'З доставкою' : 'Без доставки' }}</p>
+        <ul>
+          <li *ngFor="let item of order.items">
+            <strong>{{ item.product?.name }}</strong> (Кількість: {{ item.quantity }})
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="cancel-button-container">
+      <button class="my-button" (click)="cancelOrder(order.id)" [disabled]="order.status == OrderStatus.CANCELED">Скасувати замовлення</button>
+    </div>
+  </div>
+</ng-template>

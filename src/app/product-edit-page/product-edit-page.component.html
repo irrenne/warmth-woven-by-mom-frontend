@@ -1,0 +1,24 @@
+<div class="product-container" [@fadeIn]>
+  <form [formGroup]="productForm" (ngSubmit)="saveChanges()" class="product-form">
+    <div class="product-details">
+      <img [src]="product?.imageUrl" [alt]="product?.name" class="product-image">
+      <div class="product-info">
+        <p>
+          Назва:
+          <input formControlName="name" placeholder="Назва продукту">
+        </p>
+        <p>
+          Опис:
+          <textarea formControlName="description" placeholder="Опис продукту"></textarea>
+        </p>
+        <p>
+          Ціна: <input formControlName="price" type="number" placeholder="Ціна" min="0">
+        </p>
+        <p>
+          Кількість: <input formControlName="amount" type="number" placeholder="Кількість" min="0">
+        </p>
+        <button type="submit" class="my-button">Зберегти зміни</button>
+      </div>
+    </div>
+  </form>
+</div>

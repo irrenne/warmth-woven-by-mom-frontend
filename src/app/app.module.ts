@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
@@ -16,24 +16,36 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatListModule} from "@angular/material/list";
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatCardModule} from "@angular/material/card";
-import {NgOptimizedImage} from "@angular/common";
+import {NgOptimizedImage, registerLocaleData} from "@angular/common";
 import {FlexLayoutModule} from "@angular/flex-layout";
-import { FooterComponent } from './footer/footer.component';
-import { ProductViewPageComponent } from './product-view-page/product-view-page.component';
+import {FooterComponent} from './footer/footer.component';
+import {ProductViewPageComponent} from './product-view-page/product-view-page.component';
 import {MatExpansionModule} from "@angular/material/expansion";
-import { OrderPageComponent } from './order-page/order-page.component';
+import {OrderPageComponent} from './order-page/order-page.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { UserLoginPageComponent } from './user-login-page/user-login-page.component';
+import {UserLoginPageComponent} from './user-login-page/user-login-page.component';
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
 import {JwtModule} from "@auth0/angular-jwt";
-import { UserRegistrationPageComponent } from './user-registration-page/user-registration-page.component';
-import { UserOrdersPageComponent } from './user-orders-page/user-orders-page.component';
-import { OrderDisplayComponent } from './order-display/order-display.component';
-import { CartComponent } from './cart/cart.component';
-import { OrderCartPageComponent } from './order-cart-page/order-cart-page.component';
+import {
+  UserRegistrationPageComponent
+} from './user/user-registration-page/user-registration-page.component';
+import {UserOrdersPageComponent} from './user/user-orders-page/user-orders-page.component';
+import {OrderDisplayComponent} from './order-display/order-display.component';
+import {CartComponent} from './cart/cart.component';
+import {OrderCartPageComponent} from './order-cart-page/order-cart-page.component';
+import {UserAppComponentComponent} from './user/user-app-component/user-app-component.component';
+import {
+  AdminAppComponentComponent
+} from './admin/admin-app-component/admin-app-component.component';
+import localeUk from '@angular/common/locales/uk';
+import { AdminOrdersPageComponent } from './admin/admin-orders-page/admin-orders-page.component';
+import { ProductEditPageComponent } from './product-edit-page/product-edit-page.component';
+import { AdminOrderEditReviewPageComponent } from './admin/admin-order-edit-review-page/admin-order-edit-review-page.component';
+import { AdminOrderViewDisplayComponent } from './admin/admin-order-view-display/admin-order-view-display.component';
 
+registerLocaleData(localeUk);
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +59,13 @@ import { OrderCartPageComponent } from './order-cart-page/order-cart-page.compon
     UserOrdersPageComponent,
     OrderDisplayComponent,
     CartComponent,
-    OrderCartPageComponent
+    OrderCartPageComponent,
+    UserAppComponentComponent,
+    AdminAppComponentComponent,
+    AdminOrdersPageComponent,
+    ProductEditPageComponent,
+    AdminOrderEditReviewPageComponent,
+    AdminOrderViewDisplayComponent
   ],
   imports: [
     BrowserModule,
@@ -77,7 +95,7 @@ import { OrderCartPageComponent } from './order-cart-page/order-cart-page.compon
     }),
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'uk-UA' }],
   bootstrap: [AppComponent]
 })
 export class AppModule {

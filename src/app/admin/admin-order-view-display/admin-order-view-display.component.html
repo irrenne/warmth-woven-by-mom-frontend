@@ -1,0 +1,15 @@
+<div class="order-container" [@fadeIn]>
+  <div class="order-content">
+    <div class="left-section">
+      <img [src]="item.product?.imageUrl" [alt]="item.product?.name" class="product-image-order">
+    </div>
+    <div class="right-section">
+      <p>Виріб: {{ item.product?.name }}</p>
+      <p>Ціна: {{ item.product?.price }}</p>
+      <p>{{ item.product?.description }}</p>
+      <div class="product-quantity">
+        <p>Кількість: {{item.quantity}}</p>
+      </div>
+    </div>
+  </div>
+</div>
