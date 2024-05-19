@@ -10,6 +10,8 @@ import {UserBasicInfo} from "../UserBasicInfo";
 import {Product} from "../Product";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {CartService} from "../services/cart.service";
+import {InfoDialogComponent} from "../info-dialog/info-dialog.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-product-view-page',
@@ -34,14 +36,15 @@ export class ProductViewPageComponent implements OnInit {
   reviewForm: FormGroup;
 
   constructor(
-      private fb: FormBuilder, // Inject FormBuilder
+      private fb: FormBuilder,
       private route: ActivatedRoute,
       private router: Router,
       private httpService: HttpService,
       public authService: AuthorizationService,
-      private cartService: CartService
+      private cartService: CartService,
+      private dialog: MatDialog
   ) {
-    // Initialize the form group
+
     this.reviewForm = this.fb.group({
       comment: ['', Validators.required]
     });
@@ -60,9 +63,9 @@ export class ProductViewPageComponent implements OnInit {
   }
 
   toggleReviewForm(): void {
-    this.showReviewForm = !this.showReviewForm; // Toggle the visibility state
+    this.showReviewForm = !this.showReviewForm;
     if (this.showReviewForm) {
-      this.reviewForm.reset(); // Optionally reset the form when opened
+      this.reviewForm.reset();
     }
   }
 
@@ -116,14 +119,27 @@ export class ProductViewPageComponent implements OnInit {
         this.router.navigate(['/order', this.product.id]);
       }
     } else {
-      this.router.navigate(['/login']);
+      this.openInfoDialog('Щоб оформити замовленння, потрібно увійти', '/login');
     }
   }
 
   addToCart(product: Product | null, quantity: number): void {
     if (product) {
       this.cartService.addToCart(product, quantity);
+      this.openInfoDialog('Виріб додано у кошик');
     }
+  }
+
+  openInfoDialog(message: string, navigatePath?: string): void {
+    const dialogRef = this.dialog.open(InfoDialogComponent, {
+      data: { message: message, navigatePath: navigatePath }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.router.navigate([result]);
+      }
+    });
   }
 
 }

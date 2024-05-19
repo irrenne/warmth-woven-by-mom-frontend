@@ -5,6 +5,8 @@ import {Router} from "@angular/router";
 import {AuthorizationService} from "../services/authorization.service";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {JwtHelperService} from "@auth0/angular-jwt";
+import {InfoDialogComponent} from "../info-dialog/info-dialog.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-order-cart-page',
@@ -21,7 +23,8 @@ export class OrderCartPageComponent {
               private router: Router,
               public authService: AuthorizationService,
               private http: HttpClient,
-              private jwtHelper: JwtHelperService) {
+              private jwtHelper: JwtHelperService,
+              private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -59,7 +62,7 @@ export class OrderCartPageComponent {
         this.http.post('http://localhost:9191/api/order', orderRequest, {headers}).subscribe({
           next: (response: any) => {
             console.log('Order placed successfully:', response);
-            this.router.navigate(['']);
+            this.openInfoDialog('Замовлення створено успішно', '/');
           },
           error: (error: any) => {
             console.error('Error placing order:', error);
@@ -68,8 +71,19 @@ export class OrderCartPageComponent {
         this.cartService.clearCart();
       }
     } else {
-      // Redirect to login page if user is not logged in
       this.router.navigate(['/login']);
     }
+  }
+
+  openInfoDialog(message: string, navigatePath?: string): void {
+    const dialogRef = this.dialog.open(InfoDialogComponent, {
+      data: {message: message, navigatePath: navigatePath}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.router.navigate([result]);
+      }
+    });
   }
 }

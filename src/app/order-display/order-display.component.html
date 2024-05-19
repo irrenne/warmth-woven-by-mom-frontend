@@ -9,7 +9,7 @@
         <p>Статус: <span [class]="getStatusClass(order.status)">{{ getStatusText(
             order.status) }}</span></p>
         <p>Сума: {{ order.price }}</p>
-        <p>{{ order.withShipping ? 'З доставкою' : 'Без доставки' }}</p>
+        <p>{{ order.withShipping ? 'З доставкою' : 'Самовивіз' }}</p>
         <p>Пошта покупця: {{ userBasicInfos[order.userId].email }}</p>
       </div>
       <div class="order-details right-section">
@@ -37,7 +37,7 @@
         <p>Статус: <span [class]="getStatusClass(order.status)">{{ getStatusText(
             order.status) }}</span></p>
         <p>Сума: {{ order.price }}</p>
-        <p>{{ order.withShipping ? 'З доставкою' : 'Без доставки' }}</p>
+        <p>{{ order.withShipping ? 'З доставкою' : 'Самовивіз' }}</p>
         <ul>
           <li *ngFor="let item of order.items">
             <strong>{{ item.product?.name }}</strong> (Кількість: {{ item.quantity }})
@@ -46,7 +46,7 @@
       </div>
     </div>
     <div class="cancel-button-container">
-      <button class="my-button" (click)="cancelOrder(order.id)" [disabled]="order.status == OrderStatus.CANCELED">Скасувати замовлення</button>
+      <button class="my-button" (click)="cancelOrder(order.id)" [disabled]="order.status === OrderStatus.CANCELED || order.status === OrderStatus.COMPLETE">Скасувати замовлення</button>
     </div>
   </div>
 </ng-template>

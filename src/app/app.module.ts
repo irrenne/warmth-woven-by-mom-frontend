@@ -44,6 +44,9 @@ import { AdminOrdersPageComponent } from './admin/admin-orders-page/admin-orders
 import { ProductEditPageComponent } from './product-edit-page/product-edit-page.component';
 import { AdminOrderEditReviewPageComponent } from './admin/admin-order-edit-review-page/admin-order-edit-review-page.component';
 import { AdminOrderViewDisplayComponent } from './admin/admin-order-view-display/admin-order-view-display.component';
+import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import { InfoDialogComponent } from './info-dialog/info-dialog.component';
 
 registerLocaleData(localeUk);
 @NgModule({
@@ -65,7 +68,9 @@ registerLocaleData(localeUk);
     AdminOrdersPageComponent,
     ProductEditPageComponent,
     AdminOrderEditReviewPageComponent,
-    AdminOrderViewDisplayComponent
+    AdminOrderViewDisplayComponent,
+    ErrorDialogComponent,
+    InfoDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -76,6 +81,7 @@ registerLocaleData(localeUk);
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
+    MatDialogModule,
     AppRoutingModule,
     MatSidenavModule,
     MatListModule,

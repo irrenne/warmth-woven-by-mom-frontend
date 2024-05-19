@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {HttpService} from "../../services/http.service";
 import {AuthorizationService} from "../../services/authorization.service";
 import {Product} from "../../Product";
+import {OrderStatus} from "../../order-status.enum";
 
 @Component({
   selector: 'app-admin-order-edit-review-page',
@@ -15,10 +16,10 @@ export class AdminOrderEditReviewPageComponent implements OnInit {
   updatedStatus: string = '';
 
   constructor(
-      private route: ActivatedRoute,
-      private httpService: HttpService,
-      public authService: AuthorizationService,
-      private router: Router
+    private route: ActivatedRoute,
+    private httpService: HttpService,
+    public authService: AuthorizationService,
+    private router: Router
   ) {
   }
 
@@ -41,22 +42,24 @@ export class AdminOrderEditReviewPageComponent implements OnInit {
   }
 
   updateStatus(): void {
-    if (this.order) {
-      const updatedOrder = {
-        ...this.order,
-        status: this.updatedStatus
-      };
+    if (this.updatedStatus != OrderStatus.CANCELED) {
+      if (this.order) {
+        const updatedOrder = {
+          ...this.order,
+          status: this.updatedStatus
+        };
 
-      this.httpService.put(`http://localhost:9191/api/order/${this.order.id}`, updatedOrder)
-      .subscribe({
-        next: response => {
-          console.log('Order status updated successfully');
-          this.router.navigate(['/all/orders']);
-        },
-        error: error => {
-          console.error('Error updating order status:', error);
-        }
-      });
+        this.httpService.put(`http://localhost:9191/api/order/${this.order.id}`, updatedOrder)
+        .subscribe({
+          next: response => {
+            console.log('Order status updated successfully');
+            this.router.navigate(['/all/orders']);
+          },
+          error: error => {
+            console.error('Error updating order status:', error);
+          }
+        });
+      }
     }
   }
 
@@ -85,4 +88,6 @@ export class AdminOrderEditReviewPageComponent implements OnInit {
         return '';
     }
   }
+
+  protected readonly OrderStatus = OrderStatus;
 }

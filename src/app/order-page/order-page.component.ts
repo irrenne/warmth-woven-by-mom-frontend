@@ -6,6 +6,8 @@ import {animate, style, transition, trigger} from "@angular/animations";
 import {JwtHelperService} from '@auth0/angular-jwt';
 import {AuthorizationService} from "../services/authorization.service";
 import {HttpService} from "../services/http.service";
+import {InfoDialogComponent} from "../info-dialog/info-dialog.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-order-page',
@@ -40,7 +42,8 @@ export class OrderPageComponent implements OnInit {
     private http: HttpClient,
     private httpService: HttpService,
     private authService: AuthorizationService,
-    private jwtHelper: JwtHelperService
+    private jwtHelper: JwtHelperService,
+    private dialog: MatDialog
   ) {
   }
 
@@ -49,7 +52,7 @@ export class OrderPageComponent implements OnInit {
       const productId = +params['id'];
       this.httpService.get(`http://localhost:9191/api/product/${productId}`).subscribe({
         next: (product: Product) => {
-          this.product = product; // Assign the fetched product to the component property
+          this.product = product;
         },
         error: (error: any) => {
           console.error('Error fetching product:', error);
@@ -60,7 +63,7 @@ export class OrderPageComponent implements OnInit {
 
   get price(): bigint | null {
     if (this.product && this.product.price) {
-      return BigInt(this.quantity) * BigInt(this.product.price); // Ensure the price is calculated as a bigint
+      return BigInt(this.quantity) * BigInt(this.product.price);
     }
     return null;
   }
@@ -82,12 +85,12 @@ export class OrderPageComponent implements OnInit {
         };
 
         const headers = new HttpHeaders()
-        .set('Authorization', `Bearer ${token}`); // Set the Authorization header with the JWT token
+        .set('Authorization', `Bearer ${token}`);
 
         this.http.post('http://localhost:9191/api/order', orderRequest, {headers}).subscribe({
           next: (response: any) => {
             console.log('Order placed successfully:', response);
-            this.router.navigate(['']);
+            this.openInfoDialog('Замовлення створено успішно', '/');
           },
           error: (error: any) => {
             console.error('Error placing order:', error);
@@ -95,9 +98,19 @@ export class OrderPageComponent implements OnInit {
         });
       }
     } else {
-      // Redirect to login page if user is not logged in
       this.router.navigate(['/login']);
     }
   }
 
+  openInfoDialog(message: string, navigatePath?: string): void {
+    const dialogRef = this.dialog.open(InfoDialogComponent, {
+      data: {message: message, navigatePath: navigatePath}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.router.navigate([result]);
+      }
+    });
+  }
 }

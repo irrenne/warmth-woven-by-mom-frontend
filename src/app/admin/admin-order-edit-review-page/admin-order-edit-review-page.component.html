@@ -6,15 +6,14 @@
       <p>Статус: <span [class]="getStatusClass(order?.status)">{{ getStatusText(
           order?.status) }}</span></p>
       <p>Сума: {{ order?.price }}</p>
-      <p>{{ order?.withShipping ? 'З доставкою' : 'Без доставки' }}</p>
+      <p>{{ order?.withShipping ? 'З доставкою' : 'Самовивіз' }}</p>
       <div class="status-update-form">
         <label for="status">Змінити статус:</label>
-        <select id="status" [(ngModel)]="updatedStatus">
+        <select id="status" [(ngModel)]="updatedStatus" [disabled]="order?.status === OrderStatus.CANCELED">
           <option value="IN_PROGRESS">В процесі</option>
           <option value="COMPLETE">Виконано</option>
-          <option value="CANCELED">Скасовано</option>
         </select>
-        <button class="my-button" (click)="updateStatus()">Оновити статус</button>
+        <button class="my-button" (click)="updateStatus()" [disabled]="order?.status === OrderStatus.CANCELED">Оновити статус</button>
       </div>
     </div>
   </div>

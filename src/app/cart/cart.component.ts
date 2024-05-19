@@ -4,6 +4,8 @@ import {CartService} from '../services/cart.service';
 import {OrderItem} from '../OrderItem';
 import {Router} from "@angular/router";
 import {AuthorizationService} from "../services/authorization.service";
+import {InfoDialogComponent} from "../info-dialog/info-dialog.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-cart',
@@ -16,7 +18,8 @@ export class CartComponent implements OnInit {
 
   constructor(private cartService: CartService,
               private router: Router,
-              public authService: AuthorizationService) {
+              public authService: AuthorizationService,
+              private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -44,8 +47,19 @@ export class CartComponent implements OnInit {
     if (this.authService.isLoggedIn()) {
       this.router.navigate(['/order-products']);
     } else {
-      this.router.navigate(['/login']);
+      this.openInfoDialog('Щоб оформити замовленння, потрібно увійти', '/login');
     }
   }
 
+  openInfoDialog(message: string, navigatePath?: string): void {
+    const dialogRef = this.dialog.open(InfoDialogComponent, {
+      data: {message: message, navigatePath: navigatePath}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.router.navigate([result]);
+      }
+    });
+  }
 }
